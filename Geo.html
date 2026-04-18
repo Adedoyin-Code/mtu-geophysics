@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpeg" href="img/1.jpg" />
+    <title>Department of Geophysics Mountain Top University</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brown: #3b1f0a;
+        --brown-mid: #5c2e0e;
+        --gold: #f0a500;
+        --gold-light: #ffd166;
+        --green: #2e7d32;
+        --green-light: #4caf50;
+        --cream: #fdf6ec;
+        --white: #ffffff;
+        --text-dark: #1a1a1a;
+        --text-mid: #4a3728;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Lato", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--brown);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 60px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+      }
+      .nav-brand {
+        font-family: "Playfair Display", serif;
+        color: var(--gold);
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: #e8d5b7;
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--brown) 0%,
+          var(--brown-mid) 55%,
+          #7a3b10 100%
+        );
+        color: var(--white);
+        padding: 80px 40px 70px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F0A500' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .hero-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .hero-logos img {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px;
+        border: 2px solid rgba(240, 165, 0, 0.4);
+      }
+      .logo-divider {
+        width: 2px;
+        height: 80px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        color: var(--gold-light);
+        line-height: 1.2;
+        position: relative;
+      }
+      .hero h2 {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-weight: 300;
+        color: #e8d5b7;
+        margin-top: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+      }
+      .hero-tagline {
+        margin-top: 18px;
+        font-size: 1rem;
+        color: #c8b090;
+        font-style: italic;
+        position: relative;
+      }
+      .hero-bar {
+        width: 80px;
+        height: 4px;
+        background: var(--gold);
+        margin: 20px auto 0;
+        border-radius: 2px;
+      }
+
+      section {
+        padding: 70px 40px;
+      }
+      section:nth-child(even) {
+        background: #fff;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        color: var(--brown);
+        margin-bottom: 8px;
+      }
+      .section-subtitle {
+        color: var(--green);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .title-underline {
+        width: 60px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 2px;
+        margin: 10px 0 36px;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* ── ABOUT ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+      }
+      .about-text p {
+        line-height: 1.85;
+        color: #3a3a3a;
+        margin-bottom: 16px;
+        font-size: 0.97rem;
+      }
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .stat-card {
+        background: var(--brown);
+        color: var(--white);
+        padding: 24px 20px;
+        border-radius: 8px;
+        text-align: center;
+        border-bottom: 4px solid var(--gold);
+      }
+      .stat-card .num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.4rem;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+      .stat-card .label {
+        font-size: 0.8rem;
+        color: #c8b090;
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ── PROGRAMS ── */
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .program-card {
+        border: 1px solid #e0d0b8;
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--cream);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .program-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(59, 31, 10, 0.15);
+      }
+      .program-card-top {
+        background: var(--brown);
+        padding: 20px 24px;
+        border-bottom: 4px solid var(--gold);
+      }
+      .program-card-top h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--gold-light);
+        font-size: 1.1rem;
+      }
+      .program-card-top span {
+        font-size: 0.75rem;
+        color: #c8b090;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .program-card-body {
+        padding: 20px 24px;
+      }
+      .program-card-body p {
+        font-size: 0.9rem;
+        color: #4a3728;
+        line-height: 1.7;
+      }
+
+      .hod-card {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          var(--brown) 0%,
+          var(--brown-mid) 100%
+        );
+        border-radius: 14px;
+        padding: 40px 50px;
+        color: var(--white);
+        border-left: 6px solid var(--gold);
+      }
+      .hod-photo {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 4px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .hod-info h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: var(--gold-light);
+      }
+      .hod-info .title-tag {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--brown);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin: 8px 0 14px;
+      }
+      .hod-info p {
+        font-size: 0.92rem;
+        color: #d4bfa0;
+        line-height: 1.8;
+      }
+
+      .excos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 22px;
+        margin-top: 10px;
+      }
+      .exco-card {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .exco-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 28px rgba(59, 31, 10, 0.15);
+      }
+      .exco-avatar {
+        width: 100%;
+        height: 140px;
+        background: linear-gradient(
+          135deg,
+          var(--brown) 0%,
+          var(--brown-mid) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        border-bottom: 3px solid var(--gold);
+      }
+      .exco-card-body {
+        padding: 16px 14px 20px;
+      }
+      .exco-card-body h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--brown);
+        margin-bottom: 4px;
+      }
+      .exco-role {
+        font-size: 0.76rem;
+        color: var(--green);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+      }
+
+      .research-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
+      }
+      .research-item {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 26px 24px;
+        border-top: 4px solid var(--green);
+        border: 1px solid #e0d0b8;
+        border-top: 4px solid var(--green);
+      }
+      .research-item .icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+      .research-item h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--brown);
+        margin-bottom: 8px;
+      }
+      .research-item p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.7;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 22px;
+      }
+      .news-card {
+        background: var(--cream);
+        border-radius: 10px;
+        padding: 24px;
+        border: 1px solid #e0d0b8;
+        border-left: 5px solid var(--gold);
+      }
+      .news-date {
+        font-size: 0.78rem;
+        color: var(--green);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .news-card h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--brown);
+        margin-bottom: 8px;
+      }
+      .news-card p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.7;
+      }
+
+      #contact {
+        background: var(--brown);
+        color: var(--white);
+      }
+      #contact .section-title {
+        color: var(--gold-light);
+      }
+      #contact .section-subtitle {
+        color: var(--green-light);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: start;
+      }
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .contact-icon {
+        width: 42px;
+        height: 42px;
+        background: var(--gold);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        color: var(--brown);
+      }
+      .contact-item h4 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+      .contact-item p {
+        color: #c8b090;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+      .map-placeholder {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 12px;
+        height: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed rgba(240, 165, 0, 0.4);
+        color: #c8b090;
+        gap: 10px;
+      }
+      .map-placeholder span {
+        font-size: 2.5rem;
+      }
+      .map-placeholder p {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+
+      footer {
+        background: #1a0d04;
+        color: #8a7060;
+        text-align: center;
+        padding: 28px 40px;
+        font-size: 0.85rem;
+      }
+      footer span {
+        color: var(--gold);
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        section {
+          padding: 50px 20px;
+        }
+        .about-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .hod-card {
+          flex-direction: column;
+          text-align: center;
+          padding: 30px 24px;
+        }
+        .hero {
+          padding: 60px 20px 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-brand">Geophysics · MTU</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-logos">
+        <img src="img/1.jpg" alt="Mountain Top University Logo" />
+        <div class="logo-divider"></div>
+        <img src="img/2.jpg" alt="Geosciences Student Society Logo" />
+      </div>
+      <h1>Department of Geophysics</h1>
+      <h2>
+        College of Basic &amp; Applied Sciences &nbsp;|&nbsp; Mountain Top
+        University
+      </h2>
+      <p class="hero-tagline">
+        Empowered to Excel · Exploring the Earth Beneath Our Feet
+      </p>
+      <div class="hero-bar"></div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <p class="section-subtitle">Who We Are</p>
+        <h2 class="section-title">About the Department</h2>
+        <div class="title-underline"></div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              The Department of Geophysics at Mountain Top University is
+              dedicated to the scientific study of the Earth through physical
+              principles. We train the next generation of geophysicists equipped
+              with strong theoretical knowledge and practical field skills.
+            </p>
+            <p>
+              Our curriculum blends seismology, exploration geophysics,
+              environmental geophysics, and applied remote sensing, preparing
+              graduates for careers in the oil & gas industry, environmental
+              consulting, academia, and government agencies.
+            </p>
+            <p>
+              Rooted in the university's motto — <em>Empowered to Excel</em> —
+              our department fosters innovation, integrity, and academic
+              excellence in every student.
+            </p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="num">30+</div>
+              <div class="label">Students Enrolled</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">15+</div>
+              <div class="label">Academic Staff</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">3</div>
+              <div class="label">Degree Programmes</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">10+</div>
+              <div class="label">Research Projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs">
+      <div class="container">
+        <p class="section-subtitle">Academic Programmes</p>
+        <h2 class="section-title">Degrees Offered</h2>
+        <div class="title-underline"></div>
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Undergraduate</span>
+              <h3>B.Sc. Geophysics</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                A four-year programme covering the fundamentals of Earth
+                science, seismics, gravity, magnetic methods, and exploration
+                geophysics with field training components.
+              </p>
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Postgraduate</span>
+              <h3>M.Sc. Applied Geophysics</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                An advanced programme focusing on applied subsurface
+                investigation methods, reservoir characterisation, and
+                computational geophysics.
+              </p>
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Doctoral</span>
+              <h3>Ph.D. Geophysics</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                Research-focused doctoral programme producing original
+                contributions to geophysical knowledge, with access to modern
+                laboratory and field equipment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="container">
+        <p class="section-subtitle">Our Leadership</p>
+        <h2 class="section-title">HOD &amp; Executives</h2>
+        <div class="title-underline"></div>
+
+        <div class="hod-card" style="margin-bottom: 50px">
+          <div class="hod-photo">
+            <img
+              src="img/4.jpg"
+              alt="Dr. Okunubi Michael Olajide"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+              "
+            />
+          </div>
+          <div class="hod-info">
+            <h3>Dr. Okunubi Michael Olajide</h3>
+            <span class="title-tag">Head of Department</span>
+            <p>
+              Dr. Okunubi Michael Olajide research focuses on mapping subsurface
+              features favorable to the accumulation of mineral resources, with
+              a parallel interest in computational geophysics. His
+              methodological expertise spans
+              <strong>potential field methods</strong> gravity and magnetic
+              surveying as well as a broad suite of
+              <strong>electrical techniques</strong>, including Self-Potential
+              (SP), Induced Polarisation (IP), Resistivity (RES), and select
+              Electromagnetic (EM) methods.
+            </p>
+            <p style="margin-top: 12px; color: #b89a78">
+              Through the integration of these complementary approaches, his
+              work delivers robust characterisation of subsurface geology,
+              supporting resource exploration and advancing computational
+              frameworks in applied geophysics.
+            </p>
+          </div>
+        </div>
+
+        <p class="section-subtitle" style="margin-bottom: 6px">
+          Student Executives
+        </p>
+        <h3
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            color: var(--brown);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+          "
+        >
+          Geosciences Student Society Executives
+        </h3>
+        <div class="title-underline"></div>
+        <div class="excos-grid">
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">President</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Vice-President</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">General Secetary</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Treasurer</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Public Relations Officer</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Social Director</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Academic Director</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div
+              class="exco-avatar"
+              style="
+                height: 180px;
+                padding: 0;
+                overflow: hidden;
+                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
+              "
+            >
+              <img
+                src="img/3.jpg"
+                alt="Popoola Marvelous"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center 15%;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvelous</h4>
+              <p class="exco-role">Sport Director</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <p class="section-subtitle">Scholarly Work</p>
+        <h2 class="section-title">Research Focus Areas</h2>
+        <div class="title-underline"></div>
+        <div class="research-list">
+          <div class="research-item">
+            <div class="icon">🌍</div>
+            <h4>Exploration Geophysics</h4>
+            <p>
+              Subsurface mapping for hydrocarbon and mineral resources using
+              seismic, gravity, and magnetic methods.
+            </p>
+          </div>
+          <div class="research-item">
+            <div class="icon">💧</div>
+            <h4>Environmental Geophysics</h4>
+            <p>
+              Investigation of groundwater systems, soil contamination, and
+              near-surface hazards using geophysical techniques.
+            </p>
+          </div>
+          <div class="research-item">
+            <div class="icon">📡</div>
+            <h4>Remote Sensing & GIS</h4>
+            <p>
+              Application of satellite data and geographic information systems
+              to geological and geophysical mapping.
+            </p>
+          </div>
+          <div class="research-item">
+            <div class="icon">🏗️</div>
+            <h4>Engineering Geophysics</h4>
+            <p>
+              Site investigation and structural integrity assessment in support
+              of civil engineering projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="container">
+        <p class="section-subtitle">Latest Updates</p>
+        <h2 class="section-title">News &amp; Events</h2>
+        <div class="title-underline"></div>
+        <div class="news-grid">
+          <div class="news-card">
+            <p class="news-date">April 2026</p>
+            <h4>Annual Geophysics Field Trip</h4>
+            <p>
+              Final-year students embark on a two-week field training exercise
+              to the Niger Delta region for hands-on seismic data acquisition.
+            </p>
+          </div>
+          <div class="news-card">
+            <p class="news-date">March 2026</p>
+            <h4>Research Grant Awarded</h4>
+            <p>
+              The department receives a research grant to investigate
+              groundwater potential in the Ogun State basin using integrated
+              geophysical methods.
+            </p>
+          </div>
+          <div class="news-card">
+            <p class="news-date">February 2026</p>
+            <h4>Industry Seminar Series</h4>
+            <p>
+              Experts from leading oil and gas companies visit to deliver
+              lectures on modern reservoir geophysics and career opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <p class="section-subtitle">Get In Touch</p>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="title-underline" style="background: var(--gold)"></div>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <h4>Address</h4>
+                <p>
+                  Department of Geophysics, College of Basic &amp; Applied
+                  Sciences,<br />Mountain Top University, Km 12, Lagos-Ibadan
+                  Expressway, Ogun State, Nigeria.
+                </p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <h4>Phone</h4>
+                <p>+234 000 000 0000</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p>geophysics@mtu.edu.ng</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <h4>Office Hours</h4>
+                <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.332708981112!2d3.410055375209125!3d6.72919952073834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9553d422218d%3A0xe50542b239e4c831!2sMountain%20Top%20University!5e0!3m2!1sen!2sng!4v1776523582990!5m2!1sen!2sng"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2026 <span>Department of Geophysics</span> · Mountain Top
+        University · All Rights Reserved
+      </p>
+    </footer>
+  </body>
+</html>
