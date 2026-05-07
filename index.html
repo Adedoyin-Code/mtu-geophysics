@@ -22,7 +22,6 @@
         --text-dark: #1a1a1a;
         --text-mid: #4a3728;
       }
-
       *,
       *::before,
       *::after {
@@ -30,11 +29,9 @@
         margin: 0;
         padding: 0;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         font-family: "Lato", sans-serif;
         background: var(--cream);
@@ -45,7 +42,7 @@
       nav {
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 200;
         background: var(--brown);
         display: flex;
         align-items: center;
@@ -62,22 +59,73 @@
       }
       .nav-links {
         display: flex;
-        gap: 28px;
+        gap: 22px;
         list-style: none;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .nav-links > li {
+        position: relative;
       }
       .nav-links a {
         color: #e8d5b7;
         text-decoration: none;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         letter-spacing: 0.5px;
         text-transform: uppercase;
         font-weight: 700;
         transition: color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 4px;
       }
       .nav-links a:hover {
         color: var(--gold);
       }
 
+      /* Dropdown */
+      .dropdown-toggle::after {
+        content: "▾";
+        font-size: 0.7rem;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        background: var(--brown-mid);
+        border: 1px solid rgba(240, 165, 0, 0.25);
+        border-radius: 8px;
+        min-width: 200px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        z-index: 300;
+      }
+      .nav-links li:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 11px 18px;
+        color: #e8d5b7;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 700;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+      .dropdown-menu a:last-child {
+        border-bottom: none;
+      }
+      .dropdown-menu a:hover {
+        background: rgba(240, 165, 0, 0.15);
+        color: var(--gold);
+      }
+
+      /* HERO */
       .hero {
         background: linear-gradient(
           135deg,
@@ -163,7 +211,6 @@
       section:nth-child(even) {
         background: #fff;
       }
-
       .section-title {
         font-family: "Playfair Display", serif;
         font-size: 2rem;
@@ -190,7 +237,7 @@
         margin: 0 auto;
       }
 
-      /* ── ABOUT ── */
+      /* ABOUT */
       .about-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -230,10 +277,10 @@
         letter-spacing: 1px;
       }
 
-      /* ── PROGRAMS ── */
+      /* PROGRAMS */
       .programs-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 24px;
       }
       .program-card {
@@ -274,57 +321,10 @@
         line-height: 1.7;
       }
 
-      .hod-card {
-        display: flex;
-        gap: 40px;
-        align-items: center;
-        background: linear-gradient(
-          135deg,
-          var(--brown) 0%,
-          var(--brown-mid) 100%
-        );
-        border-radius: 14px;
-        padding: 40px 50px;
-        color: var(--white);
-        border-left: 6px solid var(--gold);
-      }
-      .hod-photo {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        border: 4px solid var(--gold);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        overflow: hidden;
-      }
-      .hod-info h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 1.6rem;
-        color: var(--gold-light);
-      }
-      .hod-info .title-tag {
-        display: inline-block;
-        background: var(--gold);
-        color: var(--brown);
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 4px 12px;
-        border-radius: 20px;
-        margin: 8px 0 14px;
-      }
-      .hod-info p {
-        font-size: 0.92rem;
-        color: #d4bfa0;
-        line-height: 1.8;
-      }
-
+      /* EXCOS */
       .excos-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
         gap: 22px;
         margin-top: 10px;
       }
@@ -344,45 +344,242 @@
       }
       .exco-avatar {
         width: 100%;
-        height: 140px;
-        background: linear-gradient(
-          135deg,
-          var(--brown) 0%,
-          var(--brown-mid) 100%
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
+        height: 200px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
         border-bottom: 3px solid var(--gold);
       }
+      .exco-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
       .exco-card-body {
-        padding: 16px 14px 20px;
+        padding: 14px 12px 18px;
       }
       .exco-card-body h4 {
         font-family: "Playfair Display", serif;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: var(--brown);
         margin-bottom: 4px;
       }
       .exco-role {
-        font-size: 0.76rem;
+        font-size: 0.73rem;
         color: var(--green);
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;
       }
 
+      /* POSTGRADUATE */
+      #postgraduate {
+        background: #fff8f0;
+      }
+      .pg-tabs {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 32px;
+        border-bottom: 2px solid #e0d0b8;
+      }
+      .pg-tab-btn {
+        padding: 10px 28px;
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        font-family: "Lato", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .pg-tab-btn.active {
+        color: var(--brown);
+        border-bottom-color: var(--gold);
+      }
+      .pg-tab-btn:hover {
+        color: var(--brown);
+      }
+      .pg-panel {
+        display: none;
+      }
+      .pg-panel.active {
+        display: block;
+      }
+      .pg-students-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 22px;
+      }
+      .pg-student-card {
+        background: var(--white);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .pg-student-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 28px rgba(59, 31, 10, 0.15);
+      }
+      .pg-student-photo {
+        width: 100%;
+        height: 190px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        border-bottom: 3px solid var(--gold);
+        position: relative;
+      }
+      .pg-student-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .pg-student-photo .photo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 8px;
+        color: rgba(240, 165, 0, 0.5);
+      }
+      .pg-student-photo .photo-placeholder span {
+        font-size: 2.8rem;
+      }
+      .pg-student-photo .photo-placeholder p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(200, 176, 144, 0.6);
+      }
+      .pg-level-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--gold);
+        color: var(--brown);
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 3px 8px;
+        border-radius: 20px;
+      }
+      .pg-student-info {
+        padding: 14px 12px 18px;
+      }
+      .pg-student-info h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 0.95rem;
+        color: var(--brown);
+        margin-bottom: 4px;
+      }
+      .pg-student-info .pg-matric {
+        font-size: 0.75rem;
+        color: var(--green);
+        font-weight: 700;
+      }
+      .pg-student-info .pg-research {
+        font-size: 0.78rem;
+        color: #777;
+        margin-top: 6px;
+        line-height: 1.5;
+        font-style: italic;
+      }
+
+      /* LECTURERS */
+      #lecturers {
+        background: var(--cream);
+      }
+      .lecturers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 26px;
+      }
+      .lecturer-card {
+        background: var(--white);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .lecturer-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 36px rgba(59, 31, 10, 0.18);
+      }
+      .lecturer-photo {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        border-bottom: 4px solid var(--gold);
+        position: relative;
+      }
+      .lecturer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .lecturer-photo .photo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 8px;
+        color: rgba(240, 165, 0, 0.45);
+      }
+      .lecturer-photo .photo-placeholder span {
+        font-size: 3.2rem;
+      }
+      .lecturer-photo .photo-placeholder p {
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(200, 176, 144, 0.55);
+      }
+      .lecturer-info {
+        padding: 16px 14px 20px;
+      }
+      .lecturer-info h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--brown);
+        margin-bottom: 5px;
+      }
+      .lecturer-info .lecturer-speciality {
+        font-size: 0.78rem;
+        color: #777;
+        line-height: 1.5;
+        font-style: italic;
+      }
+
+      /* RESEARCH */
       .research-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 22px;
       }
       .research-item {
         background: var(--white);
         border-radius: 10px;
         padding: 26px 24px;
-        border-top: 4px solid var(--green);
         border: 1px solid #e0d0b8;
         border-top: 4px solid var(--green);
       }
@@ -402,9 +599,246 @@
         line-height: 1.7;
       }
 
+      /* STUDENT CHAPTERS */
+      #chapters {
+        background: #fff8f0;
+      }
+      .chapters-intro {
+        color: #3a3a3a;
+        line-height: 1.85;
+        font-size: 0.97rem;
+        margin-bottom: 36px;
+        max-width: 800px;
+      }
+      .chapter-acronym {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        color: var(--gold-light);
+        display: block;
+        margin-bottom: 2px;
+      }
+      .chapter-scope {
+        font-size: 0.75rem;
+        color: #c8b090;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .chapter-fullname {
+        font-size: 0.82rem;
+        color: var(--gold);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .chapter-desc {
+        font-size: 0.88rem;
+        color: #e8d5b7;
+        line-height: 1.7;
+      }
+
+      /* EVENTS */
+      #events {
+        background: #fff;
+      }
+      .events-featured {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+        margin-bottom: 40px;
+      }
+      .event-card-large {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        background: var(--cream);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .event-card-large:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 36px rgba(59, 31, 10, 0.18);
+      }
+      .event-img {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        position: relative;
+      }
+      .event-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .event-img .img-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 8px;
+        color: rgba(240, 165, 0, 0.4);
+      }
+      .event-img .img-placeholder span {
+        font-size: 3.5rem;
+      }
+      .event-img .img-placeholder p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(200, 176, 144, 0.5);
+      }
+      .event-date-ribbon {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: var(--gold);
+        color: var(--brown);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        z-index: 1;
+      }
+      .event-card-body {
+        padding: 20px 22px 24px;
+      }
+      .event-card-body h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        color: var(--brown);
+        margin-bottom: 8px;
+      }
+      .event-card-body p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.7;
+      }
+      .event-meta {
+        display: flex;
+        gap: 18px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .event-meta span {
+        font-size: 0.76rem;
+        color: var(--green);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* GALLERY — 3 per row */
+      .events-gallery-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        color: var(--brown);
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e0d0b8;
+      }
+      .events-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .gallery-thumb {
+        border-radius: 10px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        position: relative;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        border: 2px solid #e0d0b8;
+      }
+      .gallery-thumb:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 24px rgba(59, 31, 10, 0.25);
+      }
+      .gallery-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .gallery-thumb .thumb-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(59, 31, 10, 0.85),
+          transparent
+        );
+        color: #ffd166;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 20px 10px 8px;
+        text-align: center;
+        letter-spacing: 0.5px;
+        z-index: 1;
+      }
+
+      /* LIGHTBOX */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 8, 2, 0.93);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 78vh;
+        border-radius: 10px;
+        border: 3px solid var(--gold);
+        object-fit: contain;
+      }
+      .lightbox-caption {
+        color: var(--gold-light);
+        font-size: 0.9rem;
+        font-style: italic;
+        letter-spacing: 0.5px;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 28px;
+        background: none;
+        border: none;
+        color: var(--gold);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .lightbox-close:hover {
+        color: #fff;
+      }
+
+      /* NEWS */
       .news-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 22px;
       }
       .news-card {
@@ -434,6 +868,95 @@
         line-height: 1.7;
       }
 
+      /* ALUMNI */
+      #alumni {
+        background: #fff;
+      }
+      .alumni-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 26px;
+      }
+      .alumni-card {
+        background: var(--cream);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .alumni-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 36px rgba(59, 31, 10, 0.18);
+      }
+      .alumni-photo {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        border-bottom: 4px solid var(--gold);
+        position: relative;
+      }
+      .alumni-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .alumni-photo .photo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 8px;
+        color: rgba(240, 165, 0, 0.45);
+      }
+      .alumni-photo .photo-placeholder span {
+        font-size: 3.2rem;
+      }
+      .alumni-photo .photo-placeholder p {
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(200, 176, 144, 0.55);
+      }
+      .alumni-grad-badge {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gold);
+        color: var(--brown);
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+      .alumni-info {
+        padding: 16px 14px 20px;
+      }
+      .alumni-info h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1rem;
+        color: var(--brown);
+        margin-bottom: 4px;
+      }
+      .alumni-info .alumni-degree {
+        font-size: 0.76rem;
+        color: var(--green);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      /* CONTACT */
       #contact {
         background: var(--brown);
         color: var(--white);
@@ -481,23 +1004,16 @@
         line-height: 1.6;
       }
       .map-placeholder {
-        background: rgba(255, 255, 255, 0.07);
         border-radius: 12px;
         height: 260px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 2px dashed rgba(240, 165, 0, 0.4);
-        color: #c8b090;
-        gap: 10px;
+        overflow: hidden;
+        border: 2px solid rgba(240, 165, 0, 0.4);
       }
-      .map-placeholder span {
-        font-size: 2.5rem;
-      }
-      .map-placeholder p {
-        font-size: 0.85rem;
-        letter-spacing: 1px;
+      .map-placeholder iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
       }
 
       footer {
@@ -511,6 +1027,15 @@
         color: var(--gold);
       }
 
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .events-featured {
+          grid-template-columns: 1fr 1fr;
+        }
+        .events-gallery {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
       @media (max-width: 768px) {
         nav {
           padding: 0 20px;
@@ -525,25 +1050,65 @@
         .contact-grid {
           grid-template-columns: 1fr;
         }
-        .hod-card {
-          flex-direction: column;
-          text-align: center;
-          padding: 30px 24px;
-        }
         .hero {
           padding: 60px 20px 50px;
+        }
+        .pg-tabs {
+          flex-wrap: wrap;
+        }
+        .events-featured {
+          grid-template-columns: 1fr;
+        }
+        .events-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .events-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .exco-avatar {
+          height: 160px;
+        }
+        .lecturer-photo {
+          height: 180px;
+        }
+        .alumni-photo {
+          height: 170px;
+        }
+        .event-img {
+          height: 180px;
+        }
+        .pg-student-photo {
+          height: 160px;
         }
       }
     </style>
   </head>
   <body>
     <nav>
-      <div class="nav-brand">Geophysics · MTU</div>
+      <div class="nav-brand">Geosciences · MTU</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#programs">Programs</a></li>
-        <li><a href="#leadership">Leadership</a></li>
+
+        <!-- MEET OUR PEOPLE dropdown -->
+        <li>
+          <a href="#" class="dropdown-toggle" onclick="return false;"
+            >Meet Our</a
+          >
+          <div class="dropdown-menu">
+            <a href="#excos">Executives</a>
+            <a href="#lecturers">Lecturers</a>
+            <a href="#postgraduate">PGD &amp; M.Sc. Students</a>
+            <a href="#alumni">Alumni</a>
+            <a href="#chapters">Student Chapters</a>
+          </div>
+        </li>
+
+        <li><a href="fieldwork.html">Field Activities</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -555,7 +1120,7 @@
         <div class="logo-divider"></div>
         <img src="img/2.jpg" alt="Geosciences Student Society Logo" />
       </div>
-      <h1>Department of Geophysics</h1>
+      <h1>Department of Geosciences</h1>
       <h2>
         College of Basic &amp; Applied Sciences &nbsp;|&nbsp; Mountain Top
         University
@@ -566,6 +1131,7 @@
       <div class="hero-bar"></div>
     </header>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="container">
         <p class="section-subtitle">Who We Are</p>
@@ -574,21 +1140,40 @@
         <div class="about-grid">
           <div class="about-text">
             <p>
-              The Department of Geophysics at Mountain Top University is
-              dedicated to the scientific study of the Earth through physical
-              principles. We train the next generation of geophysicists equipped
-              with strong theoretical knowledge and practical field skills.
+              The Department of Geosciences, Mountain Top University offers a
+              strong and focused training in Geology and Geophysics, giving
+              students a solid understanding of the Earth from both a physical
+              and interpretational perspective. In Geology, students explore how
+              rocks form, how sedimentary basins evolve, and how structures like
+              faults and folds control the distribution of natural resources. In
+              Geophysics, the focus shifts to using physical methods to
+              investigate what lies beneath the surface without digging through
+              techniques such as seismic, gravity, magnetic, and electrical
+              surveys.
             </p>
             <p>
-              Our curriculum blends seismology, exploration geophysics,
-              environmental geophysics, and applied remote sensing, preparing
-              graduates for careers in the oil & gas industry, environmental
-              consulting, academia, and government agencies.
+              Together, these two areas equip students with the knowledge needed
+              to understand subsurface conditions, evaluate natural resources,
+              and solve real-world geological problems, especially in energy and
+              environmental sectors. What makes the department stand out is its
+              strong emphasis on practical, hands-on learning and
+              industry-relevant skills. Students are trained to use modern
+              interpretation and modeling software such as Petrel, ArcGIS,
+              Hampson-Russell, and Shearwater, allowing them to analyze seismic
+              data, build subsurface models, and make informed geological
+              predictions.
             </p>
             <p>
-              Rooted in the university's motto — <em>Empowered to Excel</em> —
-              our department fosters innovation, integrity, and academic
-              excellence in every student.
+              In addition, the department is equipped with a range of field and
+              laboratory instruments for data acquisition, including
+              gravimeters, magnetometers, SuperSting R8, SuperSting R1, Ground
+              Penetrating Radar (GPR), and more. These tools give students real
+              experience in collecting and interpreting geophysical data,
+              bridging the gap between classroom theory and field application.
+              Overall, the department provides a well-rounded, practical, and
+              forward-thinking education designed to prepare students for
+              careers in geoscience, energy, environmental management, and
+              beyond.
             </p>
           </div>
           <div class="about-stats">
@@ -613,6 +1198,7 @@
       </div>
     </section>
 
+    <!-- PROGRAMS -->
     <section id="programs">
       <div class="container">
         <p class="section-subtitle">Academic Programmes</p>
@@ -622,13 +1208,54 @@
           <div class="program-card">
             <div class="program-card-top">
               <span>Undergraduate</span>
-              <h3>B.Sc. Geophysics</h3>
+              <h3>B.Sc. Applied Geophysics</h3>
             </div>
             <div class="program-card-body">
               <p>
-                A four-year programme covering the fundamentals of Earth
-                science, seismics, gravity, magnetic methods, and exploration
-                geophysics with field training components.
+                A four-year programme covering the fundamentals of geo science,
+                seismics, gravity, magnetic methods, and exploration geophysics
+                with field training components.
+              </p>
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Undergraduate</span>
+              <h3>B.Sc. Geology</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                A four-year programme focused on the study of the Earth,
+                minerals, rocks, structural geology, sedimentation, and
+                environmental geology, combined with practical fieldwork and
+                laboratory training.
+              </p>
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Postgraduate Diploma</span>
+              <h3>PHD Applied Geophysics</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                A one-year bridging programme designed for graduates from
+                related disciplines, providing a strong foundation in applied
+                geophysical methods and field techniques.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <div class="program-card-top">
+              <span>Postgraduate Diploma</span>
+              <h3>PGD Applied Geophysics</h3>
+            </div>
+            <div class="program-card-body">
+              <p>
+                A one-year bridging programme designed for graduates from
+                related disciplines, providing a strong foundation in applied
+                geophysical methods and field techniques.
               </p>
             </div>
           </div>
@@ -645,16 +1272,448 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXCOS -->
+    <section id="excos">
+      <div class="container">
+        <p class="section-subtitle">Student Executives</p>
+        <h2 class="section-title">Geosciences Student Society</h2>
+        <div class="title-underline"></div>
+        <div class="excos-grid">
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/3.jpg" alt="Popoola Marvelous" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Popoola Marvellous</h4>
+              <p class="exco-role">President</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/7.jpg" alt="Shonde David" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Shonde David</h4>
+              <p class="exco-role">Vice-President</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/Picture3.png" alt="Oluwadamilola Emmanuel" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Oluwadamilola Emmanuel</h4>
+              <p class="exco-role">Financial Secretary / General Secretary</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/Picture1.png" alt="Chibuzo Peculiar" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Chibuzo Peculiar</h4>
+              <p class="exco-role">Asst. Financial Secretary</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/Picture2.png" alt="Arogundade Faith" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Arogundade Faith</h4>
+              <p class="exco-role">Welfare</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/15.jpg" alt="Sport Director" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Omoyibo Zino</h4>
+              <p class="exco-role">Sport Director</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/ass.jpg" alt="Asst welfare director" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Isreal Oluyode</h4>
+              <p class="exco-role">Asst welfare director</p>
+            </div>
+          </div>
+          <div class="exco-card">
+            <div class="exco-avatar">
+              <img src="img/17.jpg" alt="Enitan Mololuwa Cornelius" />
+            </div>
+            <div class="exco-card-body">
+              <h4>Enitan Mololuwa Cornelius</h4>
+              <p class="exco-role">Librarian</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LECTURERS -->
+    <section id="lecturers">
+      <div class="container">
+        <p class="section-subtitle">Academic Staff</p>
+        <h2 class="section-title">Our Lecturers</h2>
+        <div class="title-underline"></div>
+        <div class="lecturers-grid">
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/vc.jpg" alt="Prof Elijah Adebowale Ayolabi" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Prof Elijah Adebowale Ayolabi</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/4.jpg" alt="Okunubi Michael Olajide" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Okunubi Michael Olajidei</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img
+                src="img/Alao_Oludele_Adelowo.jpg"
+                alt="ALAO Oludele Adelowo"
+              />
+            </div>
+            <div class="lecturer-info">
+              <h4>Alao Oludele Adelowo</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/sunday.jpg" alt="OLABANJI Sunday Olajide" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Olabanji Sunday Olajide</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/festus.jpg" alt="OJENABOR Festus Ahiagboria" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Ojenabor Festus Ahiagboria</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/Ay.jpg" alt="Dr. Ayinde" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Dr. Nathaniel O. Ayinde</h4>
+            </div>
+          </div>
+          <div class="lecturer-card">
+            <div class="lecturer-photo">
+              <img src="img/folorunsho.jpg" alt="Dr. Folorunsho" />
+            </div>
+            <div class="lecturer-info">
+              <h4>Prof. Folorunsho</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSTGRADUATE STUDENTS -->
+    <section id="postgraduate">
+      <div class="container">
+        <p class="section-subtitle">Postgraduate Community</p>
+        <h2 class="section-title">PGD &amp; M.Sc. Students</h2>
+        <div class="title-underline"></div>
+        <div class="pg-tabs">
+          <button class="pg-tab-btn active" onclick="switchTab('pgd', this)">
+            PGD Students
+          </button>
+          <button class="pg-tab-btn" onclick="switchTab('msc', this)">
+            M.Sc. Students
+          </button>
+        </div>
+        <div id="tab-pgd" class="pg-panel active">
+          <div class="pg-students-grid">
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/12.jpg" alt="PGD Student" />
+                <div class="pg-level-badge">PGD</div>
+              </div>
+              <div class="pg-student-info"><h4>Adesuwa O.R Odoemela</h4></div>
+            </div>
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/36.jpg" alt="PGD Student" />
+                <div class="pg-level-badge">PGD</div>
+              </div>
+              <div class="pg-student-info"><h4>Ojobo David</h4></div>
+            </div>
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/ik.jpg" alt="PGD Student" />
+                <div class="pg-level-badge">PGD</div>
+              </div>
+              <div class="pg-student-info"><h4>Ikenna Paschal Abosi</h4></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-msc" class="pg-panel">
+          <div class="pg-students-grid">
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/13.jpg" alt="MSc Student" />
+                <div class="pg-level-badge">M.Sc.</div>
+              </div>
+              <div class="pg-student-info"><h4>Mr. Adesanya Adetola</h4></div>
+            </div>
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/37.jpg" alt="MSc Student" />
+                <div class="pg-level-badge">M.Sc.</div>
+              </div>
+              <div class="pg-student-info"><h4>Mr. Emmanuel Ojoajogwu</h4></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUMNI -->
+    <section id="alumni">
+      <div class="container">
+        <p class="section-subtitle">Our Graduates</p>
+        <h2 class="section-title">Alumni</h2>
+        <div class="title-underline"></div>
+        <div class="alumni-grid">
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/dan.jpg" alt="Joshua Daniel" />
+            </div>
+            <div class="alumni-info">
+              <h4>Joshua Daniel</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/29.jpg" alt="Mr Solomon Omishakin" />
+            </div>
+            <div class="alumni-info">
+              <h4>Mr Solomon Omishakin</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/16.jpg" alt="Keku Oluwatimileyin" />
+            </div>
+            <div class="alumni-info">
+              <h4>Keku Oluwatimileyin</h4>
+              <p class="alumni-degree">B.Sc. Geology</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/8.jpg" alt="Adedokun Tolu" />
+            </div>
+            <div class="alumni-info">
+              <h4>Adedokun Tolu</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/38.jpg" alt="Engr Ajagun Adekunle Jonathan" />
+            </div>
+            <div class="alumni-info">
+              <h4>Engr Ajagun Adekunle Jonathan</h4>
+              <p class="alumni-degree">M.Sc Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/banjo.jpg" alt="Banjo Anjolaoluwa" />
+            </div>
+            <div class="alumni-info">
+              <h4>Banjo Anjolaoluwa</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/kc.jpg" alt="Ebujor Kelechi" />
+            </div>
+            <div class="alumni-info">
+              <h4>Ebujor Kelechi</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/34.jpg" alt="Gabriel Chimezie" />
+            </div>
+            <div class="alumni-info">
+              <h4>Gabriel Chimezie</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/joy.jpg" alt="Joy Oluwaseun Gborogen" />
+            </div>
+            <div class="alumni-info">
+              <h4>Joy Oluwaseun Gborogen</h4>
+              <p class="alumni-degree">B.Sc. Geology</p>
+            </div>
+          </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/sanni.jpg" alt="Sanni Ubani" />
+            </div>
+            <div class="alumni-info">
+              <h4>Sanni Ubani</h4>
+              <p class="alumni-degree">B.Sc. Geology</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT CHAPTERS -->
+    <section id="chapters">
+      <div class="container">
+        <p class="section-subtitle">Professional Affiliations</p>
+        <h2 class="section-title">Student Chapters</h2>
+        <div class="title-underline"></div>
+        <p class="chapters-intro">
+          Our department hosts active student chapters of leading professional
+          organizations, including NAPE, NMGS, SEG, SPE, and AAPG. These
+          chapters provide students with opportunities for professional
+          development, technical training, networking, and industry exposure
+          through workshops, seminars, field activities, and conferences serving
+          as a bridge between academic learning and real-world geoscience
+          practice.
+        </p>
+        <div class="programs-grid">
           <div class="program-card">
             <div class="program-card-top">
-              <span>Doctoral</span>
-              <h3>Ph.D. Geophysics</h3>
+              <span class="chapter-scope">Nigeria</span>
+              <h3>NAPE</h3>
             </div>
             <div class="program-card-body">
+              <strong
+                style="
+                  display: block;
+                  color: var(--brown-mid);
+                  font-size: 0.85rem;
+                  margin-bottom: 10px;
+                "
+                >Nigerian Association of Petroleum Explorationists</strong
+              >
               <p>
-                Research-focused doctoral programme producing original
-                contributions to geophysical knowledge, with access to modern
-                laboratory and field equipment.
+                Focuses on petroleum exploration and geoscience practice in
+                Nigeria. Brings together geologists, geophysicists, and
+                engineers in the oil and gas sector.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <div class="program-card-top">
+              <span class="chapter-scope">Nigeria</span>
+              <h3>NMGS</h3>
+            </div>
+            <div class="program-card-body">
+              <strong
+                style="
+                  display: block;
+                  color: var(--brown-mid);
+                  font-size: 0.85rem;
+                  margin-bottom: 10px;
+                "
+                >Nigerian Mining and Geosciences Society</strong
+              >
+              <p>
+                Covers a broader scope of geosciences including mining, geology,
+                and earth sciences in Nigeria.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <div class="program-card-top">
+              <span class="chapter-scope">International</span>
+              <h3>SEG</h3>
+            </div>
+            <div class="program-card-body">
+              <strong
+                style="
+                  display: block;
+                  color: var(--brown-mid);
+                  font-size: 0.85rem;
+                  margin-bottom: 10px;
+                "
+                >Society of Exploration Geophysicists</strong
+              >
+              <p>
+                An international organization focused on applied geophysics,
+                especially in energy exploration.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <div class="program-card-top">
+              <span class="chapter-scope">International</span>
+              <h3>SPE</h3>
+            </div>
+            <div class="program-card-body">
+              <strong
+                style="
+                  display: block;
+                  color: var(--brown-mid);
+                  font-size: 0.85rem;
+                  margin-bottom: 10px;
+                "
+                >Society of Petroleum Engineers</strong
+              >
+              <p>
+                A global professional body for engineers involved in the
+                exploration and production of oil and gas.
+              </p>
+            </div>
+          </div>
+
+          <div class="program-card">
+            <div class="program-card-top">
+              <span class="chapter-scope">International</span>
+              <h3>AAPG</h3>
+            </div>
+            <div class="program-card-body">
+              <strong
+                style="
+                  display: block;
+                  color: var(--brown-mid);
+                  font-size: 0.85rem;
+                  margin-bottom: 10px;
+                "
+                >American Association of Petroleum Geologists</strong
+              >
+              <p>
+                An international association dedicated to petroleum geology,
+                research, and professional development.
               </p>
             </div>
           </div>
@@ -662,284 +1721,7 @@
       </div>
     </section>
 
-    <section id="leadership">
-      <div class="container">
-        <p class="section-subtitle">Our Leadership</p>
-        <h2 class="section-title">HOD &amp; Executives</h2>
-        <div class="title-underline"></div>
-
-        <div class="hod-card" style="margin-bottom: 50px">
-          <div class="hod-photo">
-            <img
-              src="img/4.jpg"
-              alt="Dr. Okunubi Michael Olajide"
-              style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center top;
-                display: block;
-              "
-            />
-          </div>
-          <div class="hod-info">
-            <h3>Dr. Okunubi Michael Olajide</h3>
-            <span class="title-tag">Head of Department</span>
-            <p>
-              Dr. Okunubi Michael Olajide research focuses on mapping subsurface
-              features favorable to the accumulation of mineral resources, with
-              a parallel interest in computational geophysics. His
-              methodological expertise spans
-              <strong>potential field methods</strong> gravity and magnetic
-              surveying as well as a broad suite of
-              <strong>electrical techniques</strong>, including Self-Potential
-              (SP), Induced Polarisation (IP), Resistivity (RES), and select
-              Electromagnetic (EM) methods.
-            </p>
-            <p style="margin-top: 12px; color: #b89a78">
-              Through the integration of these complementary approaches, his
-              work delivers robust characterisation of subsurface geology,
-              supporting resource exploration and advancing computational
-              frameworks in applied geophysics.
-            </p>
-          </div>
-        </div>
-
-        <p class="section-subtitle" style="margin-bottom: 6px">
-          Student Executives
-        </p>
-        <h3
-          style="
-            font-family: &quot;Playfair Display&quot;, serif;
-            color: var(--brown);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-          "
-        >
-          Geosciences Student Society Executives
-        </h3>
-        <div class="title-underline"></div>
-        <div class="excos-grid">
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">President</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Vice-President</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">General Secetary</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Treasurer</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Public Relations Officer</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Social Director</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Academic Director</p>
-            </div>
-          </div>
-          <div class="exco-card">
-            <div
-              class="exco-avatar"
-              style="
-                height: 180px;
-                padding: 0;
-                overflow: hidden;
-                background: linear-gradient(135deg, #3b1f0a, #5c2e0e);
-              "
-            >
-              <img
-                src="img/3.jpg"
-                alt="Popoola Marvelous"
-                style="
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center 15%;
-                  display: block;
-                "
-              />
-            </div>
-            <div class="exco-card-body">
-              <h4>Popoola Marvelous</h4>
-              <p class="exco-role">Sport Director</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- RESEARCH -->
     <section id="research">
       <div class="container">
         <p class="section-subtitle">Scholarly Work</p>
@@ -964,7 +1746,7 @@
           </div>
           <div class="research-item">
             <div class="icon">📡</div>
-            <h4>Remote Sensing & GIS</h4>
+            <h4>Remote Sensing &amp; GIS</h4>
             <p>
               Application of satellite data and geographic information systems
               to geological and geophysical mapping.
@@ -982,6 +1764,128 @@
       </div>
     </section>
 
+    <!-- EVENTS -->
+    <section id="events">
+      <div class="container">
+        <p class="section-subtitle">Departmental Activities</p>
+        <h2 class="section-title">Events</h2>
+        <div class="title-underline"></div>
+        <div class="events-featured">
+          <div class="event-card-large">
+            <div class="event-img">
+              <img src="img/21.jpg" alt="Event 5th December 2025" />
+              <div class="event-date-ribbon">5th December 2025</div>
+            </div>
+            <div class="event-card-body">
+              <h4>Geo-infoTech</h4>
+              <p>
+                A brief description of this event — what happened, who was
+                involved, and why it mattered to the department.
+              </p>
+              <div class="event-meta">
+                <span>📅5th December 2025</span
+                ><span>📍 Gbagada Lagos, Nigeria</span>
+              </div>
+            </div>
+          </div>
+          <div class="event-card-large">
+            <div class="event-img">
+              <img src="img/18.jpg" alt="Event 22nd April 2026" />
+              <div class="event-date-ribbon">22nd April 2026</div>
+            </div>
+            <div class="event-card-body">
+              <h4>Nape 2nd Technical/Business Meeting</h4>
+              <p>
+                A brief description of this event — what happened, who was
+                involved, and why it mattered to the department.
+              </p>
+              <div class="event-meta">
+                <span>📅 22nd April 2026</span
+                ><span>📍 Eko-Hotel and Suites Lagos, Nigeria</span>
+              </div>
+            </div>
+          </div>
+          <div class="event-card-large">
+            <div class="event-img">
+              <img src="img/11.jpg" alt="Event 22nd April 2026" />
+              <div class="event-date-ribbon">22nd April 2026</div>
+            </div>
+            <div class="event-card-body">
+              <h4>AAPG</h4>
+              <p>
+                Students of the department recently participated in the AAPG
+                Imperial Barrel Award, working as an exploration team to
+                interpret seismic, well log, and geological data. Competing
+                against 14 prestigious universities across the Africa region,
+                the team secured an impressive 2nd place finish, presenting and
+                defending their subsurface evaluation before industry
+                professionals.
+              </p>
+              <div class="event-meta">
+                <span>📅 22nd April 2026</span
+                ><span>📍 Mountain Top University, Geoscience Workstation</span>
+              </div>
+            </div>
+          </div>
+          <div class="event-card-large">
+            <div class="event-img">
+              <img src="img/33.jpg" alt="Event January 2026" />
+              <div class="event-date-ribbon">January 2026</div>
+            </div>
+            <div class="event-card-body">
+              <h4>Event Title Here</h4>
+              <p>
+                A brief description of this event — what happened, who was
+                involved, and why it mattered to the department.
+              </p>
+              <div class="event-meta">
+                <span>📅 Date</span><span>📍 Location</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="events-gallery-title">📷 Event Gallery</h3>
+        <div class="events-gallery">
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 1')">
+            <img src="img/11.jpg" alt="Event 1" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 2')">
+            <img src="img/10.jpg" alt="Event 2" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 3')">
+            <img src="img/23.jpg" alt="Event 3" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 4')">
+            <img src="img/24.jpg" alt="Event 4" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 5')">
+            <img src="img/28.jpg" alt="Event 5" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 6')">
+            <img src="img/29.jpg" alt="Event 6" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 7')">
+            <img src="img/30.jpg" alt="Event 7" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 8')">
+            <img src="img/31.jpg" alt="Event 8" />
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox(this, 'Event 9')">
+            <img src="img/20.jpg" alt="Event 9" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+    <!-- NEWS -->
     <section id="news">
       <div class="container">
         <p class="section-subtitle">Latest Updates</p>
@@ -990,33 +1894,36 @@
         <div class="news-grid">
           <div class="news-card">
             <p class="news-date">April 2026</p>
-            <h4>Annual Geophysics Field Trip</h4>
+            <h4>AAPG/IBA Award</h4>
             <p>
-              Final-year students embark on a two-week field training exercise
-              to the Niger Delta region for hands-on seismic data acquisition.
+              The department presented a comprhensive study on the 'Hydrocarbon
+              Perspectivity of the Nova Scotia Shelf, Offshore Eastern Canada.'
+              and this was a true team effort start to finish.
             </p>
           </div>
           <div class="news-card">
-            <p class="news-date">March 2026</p>
-            <h4>Research Grant Awarded</h4>
+            <p class="news-date">April 2026</p>
+            <h4>AAPG/IBA Award</h4>
             <p>
-              The department receives a research grant to investigate
-              groundwater potential in the Ogun State basin using integrated
-              geophysical methods.
+              Among the 14 schools that advanced to the semi-finals, the
+              Department of Geosciences, Mountain Top University, proudly
+              secured 2nd position.
             </p>
           </div>
           <div class="news-card">
-            <p class="news-date">February 2026</p>
-            <h4>Industry Seminar Series</h4>
+            <p class="news-date">May 2026</p>
+            <h4>Geoscience Departmental Day</h4>
             <p>
-              Experts from leading oil and gas companies visit to deliver
-              lectures on modern reservoir geophysics and career opportunities.
+              Theme: "From Knowledge to Impact" Transforming knowledge and
+              innovation into meaningful solutions that create positive impact
+              in society.
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <p class="section-subtitle">Get In Touch</p>
@@ -1060,9 +1967,6 @@
           <div class="map-placeholder">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.332708981112!2d3.410055375209125!3d6.72919952073834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9553d422218d%3A0xe50542b239e4c831!2sMountain%20Top%20University!5e0!3m2!1sen!2sng!4v1776523582990!5m2!1sen!2sng"
-              width="600"
-              height="450"
-              style="border: 0"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -1078,5 +1982,41 @@
         University · All Rights Reserved
       </p>
     </footer>
+
+    <script>
+      function switchTab(tabId, btn) {
+        document
+          .querySelectorAll(".pg-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".pg-tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + tabId).classList.add("active");
+        btn.classList.add("active");
+      }
+      function openLightbox(thumb, caption) {
+        const img = thumb.querySelector("img");
+        const lb = document.getElementById("lightbox");
+        if (img) {
+          document.getElementById("lightbox-img").src = img.src;
+          document.getElementById("lightbox-img").alt = img.alt;
+        }
+        document.getElementById("lightbox-caption").textContent = caption;
+        lb.classList.add("open");
+      }
+      function closeLightbox(e) {
+        if (
+          !e ||
+          e.target === document.getElementById("lightbox") ||
+          e.target.classList.contains("lightbox-close")
+        ) {
+          document.getElementById("lightbox").classList.remove("open");
+        }
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("lightbox").classList.remove("open");
+      });
+    </script>
   </body>
 </html>

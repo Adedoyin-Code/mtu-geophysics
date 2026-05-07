@@ -1,0 +1,1410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpeg" href="img/1.jpg" />
+    <title>Field Activities · Department of Geosciences · MTU</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brown: #3b1f0a;
+        --brown-mid: #5c2e0e;
+        --gold: #f0a500;
+        --gold-light: #ffd166;
+        --green: #2e7d32;
+        --green-light: #4caf50;
+        --cream: #fdf6ec;
+        --white: #ffffff;
+        --text-dark: #1a1a1a;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+        background: var(--cream);
+        color: var(--text-dark);
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: var(--brown);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 60px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+      }
+      .nav-brand {
+        font-family: "Playfair Display", serif;
+        color: var(--gold);
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+      .nav-back {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #e8d5b7;
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: var(--gold);
+      }
+      .nav-back .arrow {
+        font-size: 1rem;
+      }
+
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--brown) 0%,
+          var(--brown-mid) 55%,
+          #7a3b10 100%
+        );
+        color: var(--white);
+        padding: 70px 40px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F0A500' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.4;
+      }
+      .hero-icon {
+        font-size: 3rem;
+        position: relative;
+        margin-bottom: 16px;
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        color: var(--gold-light);
+        line-height: 1.2;
+        position: relative;
+      }
+      .hero h2 {
+        font-size: clamp(0.85rem, 2vw, 1rem);
+        font-weight: 300;
+        color: #e8d5b7;
+        margin-top: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+      }
+      .hero-tagline {
+        margin-top: 14px;
+        font-size: 0.97rem;
+        color: #c8b090;
+        font-style: italic;
+        position: relative;
+      }
+      .hero-bar {
+        width: 80px;
+        height: 4px;
+        background: var(--gold);
+        margin: 18px auto 0;
+        border-radius: 2px;
+      }
+
+      .filter-bar {
+        background: var(--white);
+        border-bottom: 2px solid #e0d0b8;
+        padding: 0 40px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        position: sticky;
+        top: 60px;
+        z-index: 100;
+      }
+      .filter-btn {
+        padding: 14px 22px;
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        font-family: "Lato", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .filter-btn.active {
+        color: var(--brown);
+        border-bottom-color: var(--gold);
+      }
+      .filter-btn:hover {
+        color: var(--brown);
+      }
+
+      .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 40px;
+      }
+
+      .fw-section {
+        margin-bottom: 60px;
+        display: none;
+      }
+      .fw-section.active {
+        display: block;
+      }
+      .fw-section-header {
+        margin-bottom: 36px;
+      }
+      .fw-section-label {
+        color: var(--green);
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .fw-section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--brown);
+        margin-bottom: 10px;
+      }
+      .fw-section-desc {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.8;
+        max-width: 700px;
+      }
+      .title-underline {
+        width: 60px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 2px;
+        margin: 10px 0 20px;
+      }
+
+      .fw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 28px;
+      }
+      .fw-card {
+        background: var(--white);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid #e0d0b8;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .fw-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(59, 31, 10, 0.18);
+      }
+
+      .fw-card.featured {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 800px) {
+        .fw-card.featured {
+          grid-column: span 1;
+          display: block;
+        }
+      }
+
+      .fw-photo {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--brown), var(--brown-mid));
+        position: relative;
+        flex-shrink: 0;
+      }
+      .fw-card.featured .fw-photo {
+        height: 100%;
+        min-height: 280px;
+      }
+      .fw-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .fw-card:hover .fw-photo img {
+        transform: scale(1.04);
+      }
+
+      .fw-location-badge {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(59, 31, 10, 0.85);
+        color: var(--gold-light);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(240, 165, 0, 0.3);
+      }
+      .fw-type-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--gold);
+        color: var(--brown);
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .fw-body {
+        padding: 22px 24px 26px;
+      }
+      .fw-card.featured .fw-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 32px 36px;
+      }
+      .fw-date {
+        font-size: 0.75rem;
+        color: var(--green);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .fw-body h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        color: var(--brown);
+        margin-bottom: 10px;
+        line-height: 1.35;
+      }
+      .fw-card.featured .fw-body h3 {
+        font-size: 1.5rem;
+      }
+      .fw-body p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.75;
+        margin-bottom: 16px;
+      }
+      .fw-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: auto;
+      }
+      .fw-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.76rem;
+        color: #888;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .fw-meta-item .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+
+      .fw-strip {
+        margin-top: 14px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .fw-strip-thumb {
+        width: 72px;
+        height: 56px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 2px solid #e0d0b8;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+      .fw-strip-thumb:hover {
+        transform: scale(1.08);
+        border-color: var(--gold);
+      }
+      .fw-strip-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .fw-wall {
+        columns: 3 240px;
+        gap: 14px;
+      }
+      .fw-wall-item {
+        break-inside: avoid;
+        margin-bottom: 14px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #e0d0b8;
+        cursor: pointer;
+        position: relative;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .fw-wall-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 24px rgba(59, 31, 10, 0.2);
+      }
+      .fw-wall-item img {
+        width: 100%;
+        display: block;
+      }
+      .fw-wall-item .wall-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(59, 31, 10, 0.7), transparent);
+        opacity: 0;
+        transition: opacity 0.25s;
+        display: flex;
+        align-items: flex-end;
+        padding: 14px;
+      }
+      .fw-wall-item:hover .wall-overlay {
+        opacity: 1;
+      }
+      .fw-wall-item .wall-overlay span {
+        color: var(--gold-light);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 8, 2, 0.95);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 78vh;
+        border-radius: 10px;
+        border: 3px solid var(--gold);
+        object-fit: contain;
+      }
+      .lightbox-caption {
+        color: var(--gold-light);
+        font-size: 0.9rem;
+        font-style: italic;
+        text-align: center;
+        max-width: 600px;
+        line-height: 1.6;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 28px;
+        background: none;
+        border: none;
+        color: var(--gold);
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .lightbox-close:hover {
+        color: #fff;
+      }
+      .lb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(59, 31, 10, 0.7);
+        border: 1px solid rgba(240, 165, 0, 0.3);
+        color: var(--gold);
+        font-size: 1.6rem;
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .lb-nav:hover {
+        background: rgba(240, 165, 0, 0.2);
+      }
+      #lb-prev {
+        left: 20px;
+      }
+      #lb-next {
+        right: 20px;
+      }
+
+      .stats-strip {
+        background: var(--brown);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+      }
+      .stats-strip .stat {
+        flex: 1 1 180px;
+        max-width: 220px;
+        padding: 28px 20px;
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .stats-strip .stat:last-child {
+        border-right: none;
+      }
+      .stats-strip .num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.4rem;
+        color: var(--gold-light);
+        line-height: 1;
+      }
+      .stats-strip .lbl {
+        font-size: 0.78rem;
+        color: #c8b090;
+        margin-top: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      footer {
+        background: #1a0d04;
+        color: #8a7060;
+        text-align: center;
+        padding: 28px 40px;
+        font-size: 0.85rem;
+      }
+      footer span {
+        color: var(--gold);
+      }
+      footer a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 20px;
+        }
+        .content {
+          padding: 40px 20px;
+        }
+        .filter-bar {
+          padding: 0 20px;
+        }
+        .fw-wall {
+          columns: 2 160px;
+        }
+        .hero {
+          padding: 50px 20px 40px;
+        }
+      }
+      @media (max-width: 480px) {
+        .fw-grid {
+          grid-template-columns: 1fr;
+        }
+        .fw-wall {
+          columns: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-brand">Geosciences · MTU</div>
+      <a href="index.html" class="nav-back">
+        <span class="arrow">←</span> Back to Main Site
+      </a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-icon">🗺️</div>
+      <h1>Field Activities</h1>
+      <h2>Department of Geosciences &nbsp;|&nbsp; Mountain Top University</h2>
+      <p class="hero-tagline">
+        Where Classroom Theory Meets the Earth Beneath Our Feet
+      </p>
+      <div class="hero-bar"></div>
+    </header>
+
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="num">20+</div>
+        <div class="lbl">Field Trips Conducted</div>
+      </div>
+      <div class="stat">
+        <div class="num">6+</div>
+        <div class="lbl">States Visited</div>
+      </div>
+      <div class="stat">
+        <div class="num">50+</div>
+        <div class="lbl">Students Trained</div>
+      </div>
+      <div class="stat">
+        <div class="num">10+</div>
+        <div class="lbl">Techniques Applied</div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="showSection('all', this)">
+        All Activities
+      </button>
+      <button class="filter-btn" onclick="showSection('seismic', this)">
+        Seismic
+      </button>
+      <button class="filter-btn" onclick="showSection('gravity', this)">
+        Gravity &amp; Magnetics
+      </button>
+      <button class="filter-btn" onclick="showSection('electrical', this)">
+        Electrical Methods
+      </button>
+      <button class="filter-btn" onclick="showSection('geology', this)">
+        Geological Mapping
+      </button>
+      <button class="filter-btn" onclick="showSection('gallery', this)">
+        📷 Photo Gallery
+      </button>
+    </div>
+
+    <div class="content">
+      <div class="fw-section active" id="sec-all">
+        <div class="fw-section-header">
+          <p class="fw-section-label">In The Field</p>
+          <h2 class="fw-section-title">Field Programmes Overview</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            Our students gain hands-on experience across Nigeria's diverse
+            geological terrain from the sedimentary basins of the Niger Delta to
+            the basement complex of the Southwest. Each field trip is designed
+            to reinforce specific geophysical and geological concepts through
+            direct data acquisition and interpretation.
+          </p>
+        </div>
+
+        <div class="fw-grid">
+          <div class="fw-card featured">
+            <div class="fw-photo">
+              <img src="img/semic.jpg" alt="  Seismic Survey" />
+              <div class="fw-type-badge">Seismic Survey</div>
+              <div class="fw-location-badge">
+                📍 Work Station, Mountain Top University
+              </div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 August 2025</p>
+              <h3>Work Station Seismic Data Interpretation Exercise</h3>
+              <p>
+                Students undertook a three-week seismic interpretation exercise
+                for the interpretation of Basin Evaluation Competition [BEC]
+                2025 competition.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Seismic Refraction
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Seismic Interpretation
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  3 Weeks
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  10 Students
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/54.jpg" alt="Electrical Resistivity Survey" />
+              <div class="fw-type-badge">Electrical Methods</div>
+              <div class="fw-location-badge">📍 Dahomey Basin</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 May 2025</p>
+              <h3>Groundwater Prospecting — Dahomey Basin</h3>
+              <p>
+                Students deployed the SuperSting R8 multi-electrode system to
+                run 2D ERT (Electrical Resistivity Tomography) profiles across
+                the Dahomey Basin. The exercise targeted fresh groundwater
+                aquifers and mapped clay/sand alternations at depth.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  ERT Survey
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  SuperSting R8
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 weeks
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/43.jpg" alt="Geological Mapping" />
+              <div class="fw-type-badge">Geological Mapping</div>
+              <div class="fw-location-badge">📍 Ife, Osun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 February 2026</p>
+              <h3>Basement Complex Mapping — Ile-Ife</h3>
+              <p>
+                Students conducted structural geological mapping of the
+                Precambrian basement around Ile-Ife. Field tasks included
+                measuring strike and dip of rock units, plotting geological
+                contacts, and identifying migmatites, schists, and granites.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Structural Geology
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Rock Sampling
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  5 Days
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/48.jpg" alt="GPR Survey" />
+              <div class="fw-type-badge">Near-Surface</div>
+              <div class="fw-location-badge">📍 MTU Campus, Ogun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 January 2026</p>
+              <h3>Ground Penetrating Radar Survey — Campus Infrastructure</h3>
+              <p>
+                Using the Ground Penetrating Radar (GPR) system on campus,
+                students mapped subsurface utility lines, voids, and soil
+                anomalies. This exercise introduced real-time data acquisition
+                and radargram interpretation.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  GPR
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Near-Surface Imaging
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  1 Day
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/52.jpg" alt="Gravity Survey" />
+              <div class="fw-type-badge">Gravity &amp; Magnetics</div>
+              <div class="fw-location-badge">📍 Permanent SIte</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 April 2025</p>
+              <h3>Bouguer Anomaly Survey — MTU Permanent Site</h3>
+              <p>
+                Students operated gravimeters and magnetometers along a
+                pre-planned traverse at the permanent site. Base station
+                corrections and terrain corrections were applied to derive
+                Bouguer anomaly maps, highlighting sediment thickness
+                variations.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Gravity
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Magnetic
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 weeks
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/47.jpg" alt="Geo-infoTech" />
+              <div class="fw-type-badge">Tech &amp; Software</div>
+              <div class="fw-location-badge">📍 OOU, Oyo State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 December 2025</p>
+              <h3>Geo-infoTech Workshop — Industry Software Training</h3>
+              <p>
+                Students attended the Geo-infoTech industry workshop where they
+                received hands-on training in Petrel, ArcGIS, and
+                Hampson-Russell. Industry professionals guided sessions on
+                seismic interpretation, well log analysis, and prospect mapping.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Petrel
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  ArcGIS
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Hampson-Russell
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fw-section" id="sec-seismic">
+        <div class="fw-section-header">
+          <p class="fw-section-label">Seismic Methods</p>
+          <h2 class="fw-section-title">Seismic Field Activities</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            Seismic surveys form the backbone of subsurface exploration. Our
+            students learn to set up geophone arrays, generate seismic energy
+            sources, and record waveforms for reflection and refraction
+            analysis, also our students learnt how to interpret SEG-Y data using
+            softwares such as petrel schlumberger software.
+          </p>
+        </div>
+        <div class="fw-grid">
+          <div class="fw-card featured">
+            <div class="fw-photo">
+              <img src="img/41.jpg" alt="  Seismic" />
+              <div class="fw-type-badge">Seismic Refraction</div>
+              <div class="fw-location-badge">📍 MTU Campus</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 August 2025</p>
+              <h3>Seismic Refraction Exercise</h3>
+              <p>
+                A two-week Seismic Refraction Exercise was conducted for
+                students by the department for training purposes. Teams laid out
+                geophone arrays and used a sledgehammer source to record first
+                arrivals. Results mapped the water table and shallow regolith
+                thickness.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  24-Channel Seismograph
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Hammer &amp; Plate Source
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 Weeks · 20 Students
+                </div>
+              </div>
+              <!-- <div class="fw-strip">
+                <div
+                  class="fw-strip-thumb"
+                  onclick="
+                    openLb(
+                      'img/30.jpg',
+                      'Geophone layout during Niger Delta survey',
+                    )
+                  "
+                >
+                  <img src="img/30.jpg" />
+                </div>
+                <div
+                  class="fw-strip-thumb"
+                  onclick="openLb('img/31.jpg', 'Data recording in the field')"
+                >
+                  <img src="img/31.jpg" />
+                </div>
+                <div
+                  class="fw-strip-thumb"
+                  onclick="openLb('img/20.jpg', 'Student team reviewing data')"
+                >
+                  <img src="img/20.jpg" />
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/reflection.jpg" alt="Campus Seismic" />
+              <div class="fw-type-badge">Seismic Reflection</div>
+              <div class="fw-location-badge">📍 MTU Work Station</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 July 2025</p>
+              <h3>Campus Seismic Reflection Practical</h3>
+              <p>
+                An introductory seismic exercise for 300-level students on
+                campus. Gaining intorductory experience on the usage of petrel
+                software.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Introductory Level
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 months
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fw-section" id="sec-gravity">
+        <div class="fw-section-header">
+          <p class="fw-section-label">Gravity &amp; Magnetic Methods</p>
+          <h2 class="fw-section-title">Potential Field Surveys</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            Students operate gravimeter and magnetometer to map gravity and
+            magnetic susceptibility contrasts in the subsurface, crucial for
+            basin analysis and ground water exploration.
+          </p>
+        </div>
+        <div class="fw-grid">
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/grav.jpg" alt="Lagos Gravity Survey" />
+              <div class="fw-type-badge">Gravity Method</div>
+              <div class="fw-location-badge">📍MTU Permanent Site</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 April 2025</p>
+              <h3>Bouguer Anomaly Survey</h3>
+              <p>
+                Students operated CG-5 Scrintex Autograv gravimeter along a 2km
+                traverse, taking station readings every 1m. Tide, drift,
+                free-air, and Bouguer corrections were computed in the lab.
+                Final anomaly maps revealed a sedimentary thickening towards the
+                coast, consistent with the known basin geometry.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  CG-5 Scrintex Autograv Gravimeter
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2km Traverse
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 weeks
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/29.jpg" alt="Magnetic Survey" />
+              <div class="fw-type-badge">Magnetic Method</div>
+              <div class="fw-location-badge">📍MTU Permanent Site</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 April 2025</p>
+              <h3>Magnetic Survery - MTU Permanent Site</h3>
+              <p></p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Proton Precession Magnetometer
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  3 Days
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fw-section" id="sec-electrical">
+        <div class="fw-section-header">
+          <p class="fw-section-label">Electrical &amp; EM Methods</p>
+          <h2 class="fw-section-title">Resistivity &amp; GPR Surveys</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            Electrical resistivity and Ground Penetrating Radar (GPR) surveys
+            allow imaging of near-surface conditions — essential for groundwater
+            studies, environmental assessment, and engineering site
+            investigations.
+          </p>
+        </div>
+        <div class="fw-grid">
+          <div class="fw-card featured">
+            <div class="fw-photo">
+              <img src="img/53.jpg" alt="ERT Survey Ogun" />
+              <div class="fw-type-badge">ERT Survey</div>
+              <div class="fw-location-badge">📍 Dahomey Basin, Ogun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 May 2025</p>
+              <h3>2D ERT Groundwater Survey — Ogun Basin</h3>
+              <p>
+                Using the SuperSting R8 multi-electrode resistivity meter,
+                students acquired 2D ERT profiles along three traverses
+                totalling 900m. Wenner and Dipole-Dipole arrays were compared.
+                Inversion with RES2DINV revealed a productive fresh-water
+                aquifer at 15–25m depth, confirmed by a nearby borehole log.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  SuperSting R8
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Wenner &amp; Dipole-Dipole
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2DEarthImager
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  2 weeks · 15 Students
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/53.jpg" alt="VES Survey" />
+              <div class="fw-type-badge">VES Survey</div>
+              <div class="fw-location-badge">📍Dahomey Basin, Ogun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 May 2025</p>
+              <h3>Vertical Electrical Sounding — Dahomey Basin</h3>
+              <p>
+                300-level students conducted Schlumberger VES surveys using
+                SUPERSTING R1 at 10 stations to evaluate subsurface layering and
+                aquifer depth in the Dahomey Basin and environs. Sounding curves
+                were interpreted using WINRESIST software.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Schlumberger Array
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  SuperSting R1
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  WINRESIST
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  3 weeks
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fw-section" id="sec-geology">
+        <div class="fw-section-header">
+          <p class="fw-section-label">Geological Mapping</p>
+          <h2 class="fw-section-title">Field Geology Exercises</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            Understanding the rocks at surface is fundamental to any subsurface
+            interpretation. Students learn to map geological contacts, describe
+            lithologies, measure structural attitudes, and collect samples for
+            petrographic analysis.
+          </p>
+        </div>
+        <div class="fw-grid">
+          <div class="fw-card featured">
+            <div class="fw-photo">
+              <img src="img/40.jpg" alt="Basement Mapping Ife" />
+              <div class="fw-type-badge">Geological Mapping</div>
+              <div class="fw-location-badge">📍 Ile-Ife, Osun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 February 2026</p>
+              <h3>Precambrian Basement Mapping — Ile-Ife Area</h3>
+              <p>
+                A five-day mapping exercise targeting the Precambrian basement
+                complex exposed around Ile-Ife. Students mapped migmatites,
+                granite gneisses, and schistose units, measuring structural
+                attitudes (strike, dip, plunge) and plotting geological contacts
+                on 1:25,000 base maps. Rock samples were collected for
+                thin-section petrography and geochemical analysis back in the
+                lab.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Geological Compass
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Rock Sampling
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Thin Section Petrography
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  5 Days · 18 Students
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fw-card">
+            <div class="fw-photo">
+              <img src="img/33.jpg" alt="Sedimentary Mapping" />
+              <div class="fw-type-badge">Sedimentology</div>
+              <div class="fw-location-badge">📍 Abeokuta, Ogun State</div>
+            </div>
+            <div class="fw-body">
+              <p class="fw-date">📅 October 2025</p>
+              <h3>Sedimentary Log — Abeokuta Formation Outcrops</h3>
+              <p>
+                Students described and logged sedimentary sections exposed in
+                road cuts around Abeokuta. Grain size analysis, sedimentary
+                structures, and palaeocurrent indicators were documented to
+                interpret depositional environments.
+              </p>
+              <div class="fw-meta">
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Sedimentary Logging
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  Palaeocurrent Analysis
+                </div>
+                <div class="fw-meta-item">
+                  <div class="dot"></div>
+                  3 Days
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fw-section" id="sec-gallery">
+        <div class="fw-section-header">
+          <p class="fw-section-label">Visual Archive</p>
+          <h2 class="fw-section-title">Field Photo Gallery</h2>
+          <div class="title-underline"></div>
+          <p class="fw-section-desc">
+            A visual record of our students at work in the field. Click any
+            photo to enlarge.
+          </p>
+        </div>
+        <div class="fw-wall">
+          <div
+            class="fw-wall-item"
+            onclick="
+              openLb(
+                'img/photo_11_2026-04-13_11-45-24.jpg',
+                'Field activity — NAPE Technical Meeting, April 2026',
+              )
+            "
+          >
+            <img src="img/photo_11_2026-04-13_11-45-24.jpg" alt="Field 1" />
+            <div class="wall-overlay">
+              <span>NAPE Technical Meeting · April 2026</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/10.jpg', 'Campus seismic practical')"
+          >
+            <img src="img/10.jpg" alt="Field 2" />
+            <div class="wall-overlay">
+              <span>Campus Seismic Practical</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/23.jpg', 'GPR survey — MTU Campus')"
+          >
+            <img src="img/23.jpg" alt="Field 3" />
+            <div class="wall-overlay"><span>GPR Survey · MTU Campus</span></div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/24.jpg', 'Gravity traverse — Lagos Basin')"
+          >
+            <img src="img/24.jpg" alt="Field 4" />
+            <div class="wall-overlay">
+              <span>Gravity Survey · Lagos Basin</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/28.jpg', 'VES survey — Ijebu-Ode')"
+          >
+            <img src="img/28.jpg" alt="Field 5" />
+            <div class="wall-overlay"><span>VES Survey · Ijebu-Ode</span></div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/29.jpg', 'Magnetic survey — Abeokuta')"
+          >
+            <img src="img/29.jpg" alt="Field 6" />
+            <div class="wall-overlay">
+              <span>Magnetic Survey · Abeokuta</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/30.jpg', 'Geophone layout — Niger Delta')"
+          >
+            <img src="img/30.jpg" alt="Field 7" />
+            <div class="wall-overlay">
+              <span>Geophone Layout · Niger Delta</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/31.jpg', 'Data recording in the field')"
+          >
+            <img src="img/31.jpg" alt="Field 8" />
+            <div class="wall-overlay"><span>Field Data Recording</span></div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/20.jpg', 'Team debrief after survey')"
+          >
+            <img src="img/20.jpg" alt="Field 9" />
+            <div class="wall-overlay">
+              <span>Team Debrief · Post-Survey</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/21.jpg', 'Niger Delta campaign overview')"
+          >
+            <img src="img/21.jpg" alt="Field 10" />
+            <div class="wall-overlay">
+              <span>Niger Delta Field Campaign</span>
+            </div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/18.jpg', 'ERT survey setup — Ogun Basin')"
+          >
+            <img src="img/18.jpg" alt="Field 11" />
+            <div class="wall-overlay"><span>ERT Setup · Ogun Basin</span></div>
+          </div>
+          <div
+            class="fw-wall-item"
+            onclick="openLb('img/11.jpg', 'Basement mapping — Ile-Ife')"
+          >
+            <img src="img/11.jpg" alt="Field 12" />
+            <div class="wall-overlay">
+              <span>Basement Mapping · Ile-Ife</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLb(event)">
+      <button class="lightbox-close" onclick="closeLb()">&times;</button>
+      <button class="lb-nav" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+      <img id="lb-img" src="" alt="" />
+      <p class="lightbox-caption" id="lb-cap"></p>
+      <button class="lb-nav" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2026 <span>Department of Geosciences</span> · Mountain Top
+        University ·
+        <a href="index.html">← Return to Main Site</a>
+      </p>
+    </footer>
+
+    <script>
+      function showSection(id, btn) {
+        document
+          .querySelectorAll(".fw-section")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("sec-" + id).classList.add("active");
+        btn.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      let lbImages = [];
+      let lbIndex = 0;
+
+      // Build image list from all wall items + strip thumbs
+      function buildLbList() {
+        lbImages = [];
+        document
+          .querySelectorAll(".fw-wall-item, .fw-strip-thumb")
+          .forEach((el) => {
+            const imgSrc = el.querySelector("img").src;
+            const cap = el.getAttribute("onclick") || "";
+            const capMatch = cap.match(/'([^']+)',\s*'([^']+)'/);
+            lbImages.push({
+              src: imgSrc,
+              caption: capMatch ? capMatch[2] : "",
+            });
+          });
+      }
+
+      function openLb(src, caption) {
+        buildLbList();
+        // Find index of this image
+        lbIndex = lbImages.findIndex((i) =>
+          i.src.endsWith(src.split("/").pop()),
+        );
+        if (lbIndex < 0) lbIndex = 0;
+        renderLb();
+        document.getElementById("lightbox").classList.add("open");
+      }
+
+      function renderLb() {
+        const item = lbImages[lbIndex];
+        if (!item) return;
+        document.getElementById("lb-img").src = item.src;
+        document.getElementById("lb-cap").textContent = item.caption;
+        document.getElementById("lb-prev").style.display =
+          lbIndex > 0 ? "flex" : "none";
+        document.getElementById("lb-next").style.display =
+          lbIndex < lbImages.length - 1 ? "flex" : "none";
+      }
+
+      function lbNav(dir) {
+        lbIndex = Math.max(0, Math.min(lbImages.length - 1, lbIndex + dir));
+        renderLb();
+      }
+
+      function closeLb(e) {
+        if (
+          !e ||
+          e.target === document.getElementById("lightbox") ||
+          e.target.classList.contains("lightbox-close")
+        ) {
+          document.getElementById("lightbox").classList.remove("open");
+        }
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("lightbox").classList.remove("open");
+        if (e.key === "ArrowRight") lbNav(1);
+        if (e.key === "ArrowLeft") lbNav(-1);
+      });
+    </script>
+  </body>
+</html>
