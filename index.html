@@ -277,6 +277,127 @@
         letter-spacing: 1px;
       }
 
+      /* FOUNDER */
+      #founder {
+        background: linear-gradient(
+          135deg,
+          #1a0d04 0%,
+          #3b1f0a 60%,
+          #5c2e0e 100%
+        ) !important;
+      }
+      .founder-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 52px;
+        align-items: start;
+      }
+      .founder-portrait-wrap {
+        text-align: center;
+      }
+      .founder-portrait-frame {
+        width: 220px;
+        height: 260px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 4px solid var(--gold);
+        margin: 0 auto 20px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+      }
+      .founder-portrait-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .founder-name {
+        font-family: "Playfair Display", serif;
+        color: var(--gold-light);
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+      .founder-credentials {
+        font-size: 0.76rem;
+        color: var(--gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+      }
+      .founder-title-text {
+        font-size: 0.82rem;
+        color: #c8b090;
+        line-height: 1.6;
+      }
+      .founder-badges {
+        margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .badge-gold {
+        background: rgba(240, 165, 0, 0.15);
+        border: 1px solid rgba(240, 165, 0, 0.35);
+        color: var(--gold-light);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+      .badge-green {
+        background: rgba(46, 125, 50, 0.2);
+        border: 1px solid rgba(76, 175, 80, 0.35);
+        color: #4caf50;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+      .founder-speech-wrap {
+        position: relative;
+      }
+      .founder-quote-open {
+        font-size: 5.5rem;
+        color: rgba(240, 165, 0, 0.12);
+        font-family: "Playfair Display", serif;
+        line-height: 1;
+        margin-bottom: -28px;
+        margin-left: -4px;
+      }
+      .founder-quote-close {
+        font-size: 5.5rem;
+        color: rgba(240, 165, 0, 0.12);
+        font-family: "Playfair Display", serif;
+        line-height: 1;
+        text-align: right;
+        margin-top: -20px;
+      }
+      .founder-paragraphs {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .founder-paragraphs p {
+        font-size: 0.96rem;
+        color: #e8d5b7;
+        line-height: 1.92;
+      }
+      .founder-paragraphs p.highlight {
+        color: var(--gold-light);
+        font-style: italic;
+      }
+      .founder-paragraphs p.closing {
+        color: var(--gold-light);
+        font-style: italic;
+        font-size: 1rem;
+      }
+
       /* PROGRAMS */
       .programs-grid {
         display: grid;
@@ -445,24 +566,6 @@
         object-position: center top;
         display: block;
       }
-      .pg-student-photo .photo-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 8px;
-        color: rgba(240, 165, 0, 0.5);
-      }
-      .pg-student-photo .photo-placeholder span {
-        font-size: 2.8rem;
-      }
-      .pg-student-photo .photo-placeholder p {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: rgba(200, 176, 144, 0.6);
-      }
       .pg-level-badge {
         position: absolute;
         top: 10px;
@@ -484,18 +587,6 @@
         font-size: 0.95rem;
         color: var(--brown);
         margin-bottom: 4px;
-      }
-      .pg-student-info .pg-matric {
-        font-size: 0.75rem;
-        color: var(--green);
-        font-weight: 700;
-      }
-      .pg-student-info .pg-research {
-        font-size: 0.78rem;
-        color: #777;
-        margin-top: 6px;
-        line-height: 1.5;
-        font-style: italic;
       }
 
       /* LECTURERS */
@@ -527,7 +618,6 @@
         overflow: hidden;
         background: linear-gradient(135deg, var(--brown), var(--brown-mid));
         border-bottom: 4px solid var(--gold);
-        position: relative;
       }
       .lecturer-photo img {
         width: 100%;
@@ -535,24 +625,6 @@
         object-fit: cover;
         object-position: center top;
         display: block;
-      }
-      .lecturer-photo .photo-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 8px;
-        color: rgba(240, 165, 0, 0.45);
-      }
-      .lecturer-photo .photo-placeholder span {
-        font-size: 3.2rem;
-      }
-      .lecturer-photo .photo-placeholder p {
-        font-size: 0.68rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: rgba(200, 176, 144, 0.55);
       }
       .lecturer-info {
         padding: 16px 14px 20px;
@@ -562,12 +634,6 @@
         font-size: 1rem;
         color: var(--brown);
         margin-bottom: 5px;
-      }
-      .lecturer-info .lecturer-speciality {
-        font-size: 0.78rem;
-        color: #777;
-        line-height: 1.5;
-        font-style: italic;
       }
 
       /* RESEARCH */
@@ -610,32 +676,6 @@
         margin-bottom: 36px;
         max-width: 800px;
       }
-      .chapter-acronym {
-        font-family: "Playfair Display", serif;
-        font-size: 1.5rem;
-        color: var(--gold-light);
-        display: block;
-        margin-bottom: 2px;
-      }
-      .chapter-scope {
-        font-size: 0.75rem;
-        color: #c8b090;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .chapter-fullname {
-        font-size: 0.82rem;
-        color: var(--gold);
-        font-weight: 700;
-        display: block;
-        margin-bottom: 8px;
-        line-height: 1.4;
-      }
-      .chapter-desc {
-        font-size: 0.88rem;
-        color: #e8d5b7;
-        line-height: 1.7;
-      }
 
       /* EVENTS */
       #events {
@@ -673,24 +713,6 @@
         object-fit: cover;
         object-position: center;
         display: block;
-      }
-      .event-img .img-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 8px;
-        color: rgba(240, 165, 0, 0.4);
-      }
-      .event-img .img-placeholder span {
-        font-size: 3.5rem;
-      }
-      .event-img .img-placeholder p {
-        font-size: 0.7rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: rgba(200, 176, 144, 0.5);
       }
       .event-date-ribbon {
         position: absolute;
@@ -736,7 +758,6 @@
         gap: 4px;
       }
 
-      /* GALLERY — 3 per row */
       .events-gallery-title {
         font-family: "Playfair Display", serif;
         font-size: 1.2rem;
@@ -772,24 +793,6 @@
         object-fit: cover;
         object-position: center;
         display: block;
-      }
-      .gallery-thumb .thumb-label {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(
-          to top,
-          rgba(59, 31, 10, 0.85),
-          transparent
-        );
-        color: #ffd166;
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 20px 10px 8px;
-        text-align: center;
-        letter-spacing: 0.5px;
-        z-index: 1;
       }
 
       /* LIGHTBOX */
@@ -897,7 +900,6 @@
         overflow: hidden;
         background: linear-gradient(135deg, var(--brown), var(--brown-mid));
         border-bottom: 4px solid var(--gold);
-        position: relative;
       }
       .alumni-photo img {
         width: 100%;
@@ -905,39 +907,6 @@
         object-fit: cover;
         object-position: center top;
         display: block;
-      }
-      .alumni-photo .photo-placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 8px;
-        color: rgba(240, 165, 0, 0.45);
-      }
-      .alumni-photo .photo-placeholder span {
-        font-size: 3.2rem;
-      }
-      .alumni-photo .photo-placeholder p {
-        font-size: 0.68rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: rgba(200, 176, 144, 0.55);
-      }
-      .alumni-grad-badge {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--gold);
-        color: var(--brown);
-        font-size: 0.65rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 3px 10px;
-        border-radius: 20px;
-        white-space: nowrap;
       }
       .alumni-info {
         padding: 16px 14px 20px;
@@ -1062,6 +1031,9 @@
         .events-gallery {
           grid-template-columns: repeat(2, 1fr);
         }
+        .founder-grid {
+          grid-template-columns: 1fr !important;
+        }
       }
       @media (max-width: 480px) {
         .events-gallery {
@@ -1082,17 +1054,20 @@
         .pg-student-photo {
           height: 160px;
         }
+        .founder-portrait-frame {
+          width: 180px;
+          height: 210px;
+        }
       }
     </style>
   </head>
   <body>
     <nav>
-      <div class="nav-brand">Geosciences · MTU</div>
+      <div class="nav-brand">Geosciences &middot; MTU</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#founder">Founder</a></li>
         <li><a href="#programs">Programs</a></li>
-
-        <!-- MEET OUR PEOPLE dropdown -->
         <li>
           <a href="#" class="dropdown-toggle" onclick="return false;"
             >Meet Our</a
@@ -1105,7 +1080,6 @@
             <a href="#chapters">Student Chapters</a>
           </div>
         </li>
-
         <li><a href="fieldwork.html">Field Activities</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#events">Events</a></li>
@@ -1116,9 +1090,9 @@
 
     <header class="hero">
       <div class="hero-logos">
-        <img src="img/1.jpg" alt="Mountain Top University Logo" />
+        <img src="img/2.jpg" alt="Mountain Top University Logo" />
         <div class="logo-divider"></div>
-        <img src="img/2.jpg" alt="Geosciences Student Society Logo" />
+        <img src="img/58.jpg" alt="Geosciences Student Society Logo" />
       </div>
       <h1>Department of Geosciences</h1>
       <h2>
@@ -1126,7 +1100,7 @@
         University
       </h2>
       <p class="hero-tagline">
-        Empowered to Excel · Exploring the Earth Beneath Our Feet
+        Empowered to Excel &middot; Exploring the Earth Beneath Our Feet
       </p>
       <div class="hero-bar"></div>
     </header>
@@ -1170,10 +1144,6 @@
               Penetrating Radar (GPR), and more. These tools give students real
               experience in collecting and interpreting geophysical data,
               bridging the gap between classroom theory and field application.
-              Overall, the department provides a well-rounded, practical, and
-              forward-thinking education designed to prepare students for
-              careers in geoscience, energy, environmental management, and
-              beyond.
             </p>
           </div>
           <div class="about-stats">
@@ -1198,6 +1168,132 @@
       </div>
     </section>
 
+    <!-- ========== FOUNDING FATHER ========== -->
+    <section id="founder">
+      <div class="container">
+        <p class="section-subtitle" style="color: #f0a500">
+          Pioneer Vice-Chancellor
+        </p>
+        <h2 class="section-title" style="color: #ffd166">
+          Message from Our Founding Father
+        </h2>
+        <div class="title-underline" style="background: #f0a500"></div>
+        <div class="founder-grid">
+          <!-- Portrait Column -->
+          <div class="founder-portrait-wrap">
+            <div class="founder-portrait-frame">
+              <img src="img/vc-2.jpg" alt="Prof. Elijah Adebowale Ayolabi" />
+            </div>
+            <h3 class="founder-name">Prof. Elijah Adebowale Ayolabi</h3>
+            <p class="founder-credentials">FNMGS, FNIP, FSGCG</p>
+            <p class="founder-title-text">
+              Vice-Chancellor, Mountain Top University<br />Professor of Applied
+              Geophysics
+            </p>
+            <div class="founder-badges">
+              <span class="badge-gold">Founder</span>
+              <span class="badge-green">Pioneer VC</span>
+            </div>
+          </div>
+
+          <!-- Speech Column -->
+          <div class="founder-speech-wrap">
+            <div class="founder-quote-open">&ldquo;</div>
+            <div class="founder-paragraphs">
+              <p>
+                Welcome to the Department of Geosciences, Mountain Top
+                University.
+              </p>
+              <p>
+                It gives me great joy and immense satisfaction to reflect on the
+                journey of a department that was established with a clear vision
+                to raise a new generation of geoscientists distinguished by
+                competence, character, innovation, and practical excellence.
+              </p>
+              <p>
+                The inspiration to establish the Department of Geosciences arose
+                from a deep conviction that Africa, and Nigeria in particular,
+                requires highly skilled professionals capable of addressing the
+                complex challenges associated with energy resources,
+                environmental sustainability, groundwater development, natural
+                hazards, mineral exploration, and infrastructure development. I
+                believed that the future of geoscience education must go beyond
+                classroom theory and embrace practical, hands-on training
+                supported by modern technology and real world problem solving.
+              </p>
+              <p>
+                From inception, our vision has been to build a world-class
+                Department of Geosciences that serves as a centre of excellence
+                in Geophysics and Geology, producing graduates who are globally
+                competitive, professionally relevant, technologically
+                proficient, and solution driven.
+              </p>
+              <p>
+                To actualize this vision, we deliberately invested in
+                state-of-the-art teaching, laboratory, and field facilities.
+                Today, the Department boasts one of the most comprehensive
+                practical geophysics training environments in Nigeria. Our
+                students are exposed to modern geophysical equipment, field
+                investigations, data acquisition techniques, processing
+                software, interpretation methods, and industry relevant
+                applications from the earliest stages of their training. We
+                remain committed to continuously upgrading these facilities to
+                ensure that our graduates remain at the forefront of global
+                developments in the geosciences.
+              </p>
+              <p>
+                The results of this deliberate investment are evident. Our
+                students have consistently distinguished themselves in academic,
+                professional, and industry-based competitions both within
+                Nigeria and internationally. They continue to demonstrate
+                exceptional capacity, innovation, leadership, and technical
+                competence, reflecting the quality of training they receive.
+              </p>
+              <p>
+                We also recognize that excellence thrives through collaboration.
+                Consequently, the Department actively pursues partnerships with
+                industry, professional associations, research institutions,
+                government agencies, and international organizations. These
+                collaborations provide opportunities for internships, field
+                exposure, research, mentorship, and professional development,
+                thereby enriching the educational experience of our students.
+              </p>
+              <p>
+                As we look to the future, our aspiration is to become one of
+                Africa&rsquo;s leading centres for geoscience education,
+                research, and innovation. We envision a department that
+                contributes significantly to solving societal challenges through
+                cutting-edge research, technological advancement, and
+                sustainable resource development.
+              </p>
+              <p class="highlight">
+                To aspiring geoscientists, I invite you to join us on this
+                exciting journey. The geosciences remain one of the most
+                strategic disciplines in shaping the future of humanity &mdash;
+                from energy transition and climate resilience to environmental
+                stewardship, water security, and infrastructure sustainability.
+                The opportunities are limitless for those who are willing to
+                learn, innovate, and lead.
+              </p>
+              <p>
+                I am proud of how far the Department has come and even more
+                excited about the future that lies ahead. Together, we will
+                continue to build a legacy of excellence, innovation, integrity,
+                and transformational impact.
+              </p>
+              <p class="closing">
+                Welcome to the Department of Geosciences, where knowledge meets
+                discovery, innovation drives progress, and excellence shapes the
+                future.
+              </p>
+            </div>
+            <div class="founder-quote-close">&rdquo;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== END FOUNDING FATHER ========== -->
+
     <!-- PROGRAMS -->
     <section id="programs">
       <div class="container">
@@ -1212,7 +1308,7 @@
             </div>
             <div class="program-card-body">
               <p>
-                A four-year programme covering the fundamentals of geo science,
+                A four-year programme covering the fundamentals of geoscience,
                 seismics, gravity, magnetic methods, and exploration geophysics
                 with field training components.
               </p>
@@ -1232,20 +1328,6 @@
               </p>
             </div>
           </div>
-          <div class="program-card">
-            <div class="program-card-top">
-              <span>Postgraduate Diploma</span>
-              <h3>PHD Applied Geophysics</h3>
-            </div>
-            <div class="program-card-body">
-              <p>
-                A one-year bridging programme designed for graduates from
-                related disciplines, providing a strong foundation in applied
-                geophysical methods and field techniques.
-              </p>
-            </div>
-          </div>
-
           <div class="program-card">
             <div class="program-card-top">
               <span>Postgraduate Diploma</span>
@@ -1285,7 +1367,7 @@
         <div class="excos-grid">
           <div class="exco-card">
             <div class="exco-avatar">
-              <img src="img/3.jpg" alt="Popoola Marvelous" />
+              <img src="img/marv.jpg" alt="Popoola Marvellous" />
             </div>
             <div class="exco-card-body">
               <h4>Popoola Marvellous</h4>
@@ -1330,7 +1412,7 @@
           </div>
           <div class="exco-card">
             <div class="exco-avatar">
-              <img src="img/15.jpg" alt="Sport Director" />
+              <img src="img/15.jpg" alt="Omoyibo Zino" />
             </div>
             <div class="exco-card-body">
               <h4>Omoyibo Zino</h4>
@@ -1339,11 +1421,11 @@
           </div>
           <div class="exco-card">
             <div class="exco-avatar">
-              <img src="img/ass.jpg" alt="Asst welfare director" />
+              <img src="img/ass.jpg" alt="Isreal Oluyode" />
             </div>
             <div class="exco-card-body">
               <h4>Isreal Oluyode</h4>
-              <p class="exco-role">Asst welfare director</p>
+              <p class="exco-role">Asst Welfare Director</p>
             </div>
           </div>
           <div class="exco-card">
@@ -1368,7 +1450,7 @@
         <div class="lecturers-grid">
           <div class="lecturer-card">
             <div class="lecturer-photo">
-              <img src="img/vc.jpg" alt="Prof Elijah Adebowale Ayolabi" />
+              <img src="img/vc-2.jpg" alt="Prof Elijah Adebowale Ayolabi" />
             </div>
             <div class="lecturer-info">
               <h4>Prof Elijah Adebowale Ayolabi</h4>
@@ -1378,52 +1460,40 @@
             <div class="lecturer-photo">
               <img src="img/4.jpg" alt="Okunubi Michael Olajide" />
             </div>
-            <div class="lecturer-info">
-              <h4>Okunubi Michael Olajide</h4>
-            </div>
+            <div class="lecturer-info"><h4>Okunubi Michael Olajide</h4></div>
           </div>
           <div class="lecturer-card">
             <div class="lecturer-photo">
               <img
                 src="img/Alao_Oludele_Adelowo.jpg"
-                alt="ALAO Oludele Adelowo"
+                alt="Alao Oludele Adelowo"
               />
             </div>
-            <div class="lecturer-info">
-              <h4>Alao Oludele Adelowo</h4>
-            </div>
+            <div class="lecturer-info"><h4>Alao Oludele Adelowo</h4></div>
           </div>
           <div class="lecturer-card">
             <div class="lecturer-photo">
-              <img src="img/sunday.jpg" alt="OLABANJI Sunday Olajide" />
+              <img src="img/sunday.jpg" alt="Olabanji Sunday Olajide" />
             </div>
-            <div class="lecturer-info">
-              <h4>Olabanji Sunday Olajide</h4>
-            </div>
+            <div class="lecturer-info"><h4>Olabanji Sunday Olajide</h4></div>
           </div>
           <div class="lecturer-card">
             <div class="lecturer-photo">
-              <img src="img/festus.jpg" alt="OJENABOR Festus Ahiagboria" />
+              <img src="img/festus.jpg" alt="Ojenabor Festus Ahiagboria" />
             </div>
-            <div class="lecturer-info">
-              <h4>Ojenabor Festus Ahiagboria</h4>
-            </div>
+            <div class="lecturer-info"><h4>Ojenabor Festus Ahiagboria</h4></div>
           </div>
           <div class="lecturer-card">
             <div class="lecturer-photo">
-              <img src="img/Ay.jpg" alt="Dr. Ayinde" />
+              <img src="img/Ay.jpg" alt="Dr. Nathaniel O. Ayinde" />
             </div>
-            <div class="lecturer-info">
-              <h4>Dr. Nathaniel O. Ayinde</h4>
-            </div>
+            <div class="lecturer-info"><h4>Dr. Nathaniel O. Ayinde</h4></div>
           </div>
           <div class="lecturer-card">
             <div class="lecturer-photo">
-              <img src="img/folorunsho.jpg" alt="Dr. Folorunsho" />
+              <img src="img/folorunsho.jpg" alt="Prof. Folorunsho" />
             </div>
-            <div class="lecturer-info">
-              <h4>Prof. Folorunsho</h4>
-            </div>
+            <div class="lecturer-info"><h4>Prof. Folorunsho</h4></div>
           </div>
         </div>
       </div>
@@ -1468,7 +1538,6 @@
             </div>
           </div>
         </div>
-
         <div id="tab-msc" class="pg-panel">
           <div class="pg-students-grid">
             <div class="pg-student-card">
@@ -1484,6 +1553,15 @@
                 <div class="pg-level-badge">M.Sc.</div>
               </div>
               <div class="pg-student-info"><h4>Mr. Emmanuel Ojoajogwu</h4></div>
+            </div>
+            <div class="pg-student-card">
+              <div class="pg-student-photo">
+                <img src="img/obi.jpg" alt="MSc Student" />
+                <div class="pg-level-badge">M.Sc.</div>
+              </div>
+              <div class="pg-student-info">
+                <h4>Mr. Obi Babajide Oluwaseun</h4>
+              </div>
             </div>
           </div>
         </div>
@@ -1587,6 +1665,15 @@
               <p class="alumni-degree">B.Sc. Geology</p>
             </div>
           </div>
+          <div class="alumni-card">
+            <div class="alumni-photo">
+              <img src="img/ayo.jpg" alt="Ayomide Opawande" />
+            </div>
+            <div class="alumni-info">
+              <h4>Ayomide Opawande</h4>
+              <p class="alumni-degree">B.Sc. Geophysics</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1609,7 +1696,7 @@
         <div class="programs-grid">
           <div class="program-card">
             <div class="program-card-top">
-              <span class="chapter-scope">Nigeria</span>
+              <span>Nigeria</span>
               <h3>NAPE</h3>
             </div>
             <div class="program-card-body">
@@ -1629,10 +1716,9 @@
               </p>
             </div>
           </div>
-
           <div class="program-card">
             <div class="program-card-top">
-              <span class="chapter-scope">Nigeria</span>
+              <span>Nigeria</span>
               <h3>NMGS</h3>
             </div>
             <div class="program-card-body">
@@ -1651,10 +1737,9 @@
               </p>
             </div>
           </div>
-
           <div class="program-card">
             <div class="program-card-top">
-              <span class="chapter-scope">International</span>
+              <span>International</span>
               <h3>SEG</h3>
             </div>
             <div class="program-card-body">
@@ -1673,10 +1758,9 @@
               </p>
             </div>
           </div>
-
           <div class="program-card">
             <div class="program-card-top">
-              <span class="chapter-scope">International</span>
+              <span>International</span>
               <h3>SPE</h3>
             </div>
             <div class="program-card-body">
@@ -1695,10 +1779,9 @@
               </p>
             </div>
           </div>
-
           <div class="program-card">
             <div class="program-card-top">
-              <span class="chapter-scope">International</span>
+              <span>International</span>
               <h3>AAPG</h3>
             </div>
             <div class="program-card-body">
@@ -1783,7 +1866,7 @@
                 involved, and why it mattered to the department.
               </p>
               <div class="event-meta">
-                <span>📅5th December 2025</span
+                <span>📅 5th December 2025</span
                 ><span>📍 Gbagada Lagos, Nigeria</span>
               </div>
             </div>
@@ -1807,7 +1890,7 @@
           </div>
           <div class="event-card-large">
             <div class="event-img">
-              <img src="img/11.jpg" alt="Event 22nd April 2026" />
+              <img src="img/11.jpg" alt="AAPG Event" />
               <div class="event-date-ribbon">22nd April 2026</div>
             </div>
             <div class="event-card-body">
@@ -1817,9 +1900,7 @@
                 Imperial Barrel Award, working as an exploration team to
                 interpret seismic, well log, and geological data. Competing
                 against 14 prestigious universities across the Africa region,
-                the team secured an impressive 2nd place finish, presenting and
-                defending their subsurface evaluation before industry
-                professionals.
+                the team secured an impressive 2nd place finish.
               </p>
               <div class="event-meta">
                 <span>📅 22nd April 2026</span
@@ -1843,8 +1924,23 @@
               </div>
             </div>
           </div>
+          <div class="event-card-large">
+            <div class="event-img">
+              <img src="img/32.jpg" alt="Event January 2026" />
+              <div class="event-date-ribbon">January 2026</div>
+            </div>
+            <div class="event-card-body">
+              <h4>Event Title Here</h4>
+              <p>
+                A brief description of this event — what happened, who was
+                involved, and why it mattered to the department.
+              </p>
+              <div class="event-meta">
+                <span>📅 Date</span><span>📍 Location</span>
+              </div>
+            </div>
+          </div>
         </div>
-
         <h3 class="events-gallery-title">📷 Event Gallery</h3>
         <div class="events-gallery">
           <div class="gallery-thumb" onclick="openLightbox(this, 'Event 1')">
@@ -1896,9 +1992,10 @@
             <p class="news-date">April 2026</p>
             <h4>AAPG/IBA Award</h4>
             <p>
-              The department presented a comprhensive study on the 'Hydrocarbon
-              Perspectivity of the Nova Scotia Shelf, Offshore Eastern Canada.'
-              and this was a true team effort start to finish.
+              The department presented a comprehensive study on the
+              &lsquo;Hydrocarbon Perspectivity of the Nova Scotia Shelf,
+              Offshore Eastern Canada.&rsquo; &mdash; a true team effort start
+              to finish.
             </p>
           </div>
           <div class="news-card">
@@ -1914,9 +2011,9 @@
             <p class="news-date">May 2026</p>
             <h4>Geoscience Departmental Day</h4>
             <p>
-              Theme: "From Knowledge to Impact" Transforming knowledge and
-              innovation into meaningful solutions that create positive impact
-              in society.
+              Theme: &ldquo;From Knowledge to Impact&rdquo; &mdash; Transforming
+              knowledge and innovation into meaningful solutions that create
+              positive impact in society.
             </p>
           </div>
         </div>
@@ -1954,9 +2051,9 @@
               <div>
                 <h4>Email</h4>
                 <p>
-                  <a href="mailto:gssmtu@gmail.com" style="color: #c8b090">
-                    gssmtu@gmail.com
-                  </a>
+                  <a href="mailto:gssmtu@gmail.com" style="color: #c8b090"
+                    >gssmtu@gmail.com</a
+                  >
                 </p>
               </div>
             </div>
@@ -1964,7 +2061,7 @@
               <div class="contact-icon">🕐</div>
               <div>
                 <h4>Office Hours</h4>
-                <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
+                <p>Monday &ndash; Friday: 8:00 AM &ndash; 5:00 PM</p>
               </div>
             </div>
           </div>
@@ -1982,8 +2079,8 @@
 
     <footer>
       <p>
-        &copy; 2026 <span>Department of Geophysics</span> · Mountain Top
-        University · All Rights Reserved
+        &copy; 2026 <span>Department of Geophysics</span> &middot; Mountain Top
+        University &middot; All Rights Reserved
       </p>
     </footer>
 
